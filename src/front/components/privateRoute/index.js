@@ -1,4 +1,4 @@
-// @flow
+
 
 // #region imports
 import compose from 'recompose/compose';

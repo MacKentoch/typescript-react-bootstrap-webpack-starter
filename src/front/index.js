@@ -1,4 +1,4 @@
-// @flow
+
 
 // #region imports
 import 'babel-polyfill'; // NOTE: REALLY important to avoid "regeneratorRuntime is not defined"

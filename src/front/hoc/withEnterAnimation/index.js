@@ -1,4 +1,4 @@
-// @flow
+
 
 import withEnterAnimation from './withEnterAnimation';
 

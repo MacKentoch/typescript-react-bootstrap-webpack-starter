@@ -36,10 +36,11 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.(t|j)sx?$/,
+        use: { loader: 'awesome-typescript-loader' },
         exclude: [nodeModulesDir],
-        { test: /\.(t|j)sx?$/, use: { loader: 'awesome-typescript-loader' } },
-        { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
       },
+      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],

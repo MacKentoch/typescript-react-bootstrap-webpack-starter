@@ -1,4 +1,4 @@
-// @flow
+
 
 // #flow types
 export type Link = {

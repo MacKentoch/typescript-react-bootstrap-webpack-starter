@@ -1,4 +1,4 @@
-// @flow
+
 
 // #region imports
 import { injectGlobal } from 'styled-components';

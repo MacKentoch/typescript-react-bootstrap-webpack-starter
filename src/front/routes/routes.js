@@ -1,4 +1,4 @@
-// @flow
+
 
 // #region imports
 import loadable from 'loadable-components';

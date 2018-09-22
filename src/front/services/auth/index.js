@@ -1,4 +1,4 @@
-// @flow
+
 
 // #region imports
 import decode from 'jwt-decode';

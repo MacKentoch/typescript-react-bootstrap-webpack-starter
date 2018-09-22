@@ -1,4 +1,4 @@
-// @flow
+
 
 // #region singleton store
 let store = {};

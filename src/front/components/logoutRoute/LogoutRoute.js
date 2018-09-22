@@ -1,4 +1,4 @@
-// @flow
+
 
 // #region imports
 import React, { PureComponent } from 'react';

@@ -1,4 +1,4 @@
-// @flow
+
 
 // #region imports
 import { Base64 } from 'js-base64';

@@ -1,4 +1,3 @@
-// @flow
 /* eslint-disable no-undefined */
 
 // #region imports
@@ -8,21 +7,21 @@ import { Motion, spring, presets } from 'react-motion';
 // #endregion
 
 // #region flow types
-type Props = {
-  minScrollY: number,
-  scrollTo?: string,
-  onScrollDone?: () => any,
-};
+interface IProps {
+  minScrollY: number;
+  scrollTo?: string;
+  onScrollDone?: () => any;
+}
 
-type State = {
-  windowScrollY: number,
-  showBackButton: boolean,
-  tickingScollObserve: boolean,
-};
+interface IState {
+  windowScrollY: number;
+  showBackButton: boolean;
+  tickingScollObserve: boolean;
+}
 // #endregion
 
-class BackToTop extends Component<Props, State> {
-  static defaultProps = {
+class BackToTop extends Component<IProps, IState> {
+  public static defaultProps = {
     minScrollY: 120,
     onScrollDone: () => {},
   };

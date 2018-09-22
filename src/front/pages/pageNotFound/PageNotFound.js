@@ -1,4 +1,4 @@
-// @flow
+
 
 // #region lifecycle
 import React, { PureComponent } from 'react';

@@ -1,4 +1,4 @@
-// @flow
+
 
 // #region  imports
 import appConfig from '../../config/appConfig';

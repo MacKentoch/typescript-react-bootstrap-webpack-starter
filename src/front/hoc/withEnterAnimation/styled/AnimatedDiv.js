@@ -1,4 +1,4 @@
-// @flow
+
 
 // @region imports
 import styled, { keyframes, css } from 'styled-components';

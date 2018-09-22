@@ -1,4 +1,4 @@
-// @flow
+
 
 export const getLocationOrigin = (): string => {
   if (!window.location.origin) {

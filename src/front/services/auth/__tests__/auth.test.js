@@ -1,4 +1,4 @@
-// @flow
+
 
 // #region imports
 import auth from '../index';
