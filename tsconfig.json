@@ -4,15 +4,30 @@
     "outDir": "./docs/assets/", // path to output directory
     "sourceMap": true, // allow sourcemap support
     "strictNullChecks": true, // enable strict null checks as a best practice
-    "module": "es6", // specify module code generation
+    "module": "esnext", // specify module code generation
     "jsx": "react", // use typescript to transpile jsx to js
     "target": "es5", // specify ECMAScript target version
     "allowJs": true, // allow a partial TypeScript and JavaScript codebase
     "allowSyntheticDefaultImports": true, // allow default imports from module without default (as babel does)
     "esModuleInterop": true, // enables emit between commonJS and ES module via creation of namespace or all imports
-    "resolveJsonModule": true // enable importing of JSON files
+    "resolveJsonModule": true, // enable importing of JSON files
+    "lib": ["es6", "dom"],
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true
   },
   "include": [
     "./src/"
+  ],
+  "exclude": [
+    "node_modules",
+    "docs",
+    "scripts",
+    "src/test/setupTests.ts"
   ]
 }

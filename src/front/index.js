@@ -1,7 +1,6 @@
 
 
 // #region imports
-import 'babel-polyfill'; // NOTE: REALLY important to avoid "regeneratorRuntime is not defined"
 import React from 'react';
 import { hydrate, render } from 'react-dom';
 import injectTpEventPlugin from 'react-tap-event-plugin';

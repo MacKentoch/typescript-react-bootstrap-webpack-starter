@@ -1,29 +1,29 @@
 /* eslint-disable no-undefined */
 
 // #region imports
-import React, { Component } from 'react';
-import BackToTopButton from './backToTopButton/BackToTopButton';
+import * as React from 'react';
 import { Motion, spring, presets } from 'react-motion';
+import BackToTopButton from './backToTopButton/BackToTopButton';
 // #endregion
 
 // #region flow types
-interface IProps {
+interface Props {
   minScrollY: number;
   scrollTo?: string;
-  onScrollDone?: () => any;
+  onScrollDone?: () => void;
 }
 
-interface IState {
+interface State {
   windowScrollY: number;
   showBackButton: boolean;
   tickingScollObserve: boolean;
 }
 // #endregion
 
-class BackToTop extends Component<IProps, IState> {
+class BackToTop extends React.Component<Props, State> {
   public static defaultProps = {
     minScrollY: 120,
-    onScrollDone: () => {},
+    onScrollDone: () => { return; },
   };
 
   state = {

@@ -1,5 +1,3 @@
-
-
 // #region imports
 import React from 'react';
 import cx from 'classnames';
@@ -8,7 +6,7 @@ import WithRightMargin from './styled/WithRightMargin';
 // #endregion
 
 // #region flow types
-type Props = {
+interface Props {
   position: 'bottom-left' | 'bottom-right',
   onClick: (event: SyntheticEvent<>) => any,
   children: any,
@@ -36,12 +34,12 @@ const defaultStyle = {
 };
 // #endregion
 
-const BackToTopButton = ({
+function BackToTopButton ({
   onClick,
   position,
   children,
   motionStyle,
-}: Props) => {
+}: Props)  {
   const buttonStyle = setPosition(position, {
     ...motionStyle,
     ...defaultStyle,
