@@ -1,7 +1,5 @@
-
-
 // #region imports
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 import { Route, Redirect, withRouter } from 'react-router-dom';
 import {
   type Match,
@@ -24,7 +22,7 @@ type Props = {
 type State = any;
 // #endregion
 
-class LogoutRoute extends PureComponent<Props, State> {
+class LogoutRoute extends React.PureComponent<Props, State> {
   // #region lifecycle
   componentDidMount() {
     const { disconnectUser } = this.props;

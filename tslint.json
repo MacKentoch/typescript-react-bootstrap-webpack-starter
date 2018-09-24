@@ -71,7 +71,7 @@
     "typedef": [
       true,
       "parameter",
-      "property-declaration"
+      "property-declaration",
     ],
     "typedef-whitespace": [
       true,

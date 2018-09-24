@@ -1,7 +1,5 @@
-
-
 // #region imports
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 import {
   Collapse,
   Navbar,
@@ -45,7 +43,7 @@ type State = {
 };
 // #endregion
 
-class NavigationBar extends PureComponent<Props, State> {
+class NavigationBar extends React.PureComponent<Props, State> {
   static defaultProps = {
     brand: 'brand',
   };
