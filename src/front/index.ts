@@ -1,7 +1,5 @@
-
-
 // #region imports
-import React from 'react';
+import * as React from 'react';
 import { hydrate, render } from 'react-dom';
 import injectTpEventPlugin from 'react-tap-event-plugin';
 import { AppContainer } from 'react-hot-loader';

@@ -1,9 +1,7 @@
-
-
 // #region imports
-import React, { Component } from 'react';
+import * as React from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
-import compose from 'recompose/compose';
+import { compose } from 'recompose';
 import loadable from 'loadable-components';
 // #region import createHistory from hashHistory or BrowserHistory:
 // import createHistory from 'history/createHashHistory';
@@ -29,7 +27,7 @@ const LoadableLogin = loadable(() => import('./pages/login'));
 const LoadablePageNotFound = loadable(() => import('./pages/pageNotFound'));
 // #endregion
 
-class Root extends Component<Props, State> {
+class Root extends React.Component<Props, State> {
   render() {
     return (
       <Router history={history}>
