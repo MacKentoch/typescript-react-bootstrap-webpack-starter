@@ -1,7 +1,6 @@
 // #region imports
 import * as React from 'react';
 import { hydrate, render } from 'react-dom';
-import injectTpEventPlugin from 'react-tap-event-plugin';
 import { AppContainer } from 'react-hot-loader';
 import smoothScrollPolyfill from 'smoothscroll-polyfill';
 import { loadComponents, getState } from 'loadable-components';
@@ -19,15 +18,14 @@ const bootstrapedElement = document.getElementById(ELEMENT_TO_BOOTSTRAP);
 // smoothscroll polyfill
 smoothScrollPolyfill.polyfill();
 // force polyfill (even if browser partially implements it)
-window.__forceSmoothScrollPolyfill__ = true;
-window.snapSaveState = () => getState();
+(window as any).__forceSmoothScrollPolyfill__ = true;
+(window as any).snapSaveState = () => getState();
 
 injectGlobalStyle();
-injectTpEventPlugin();
 // #endregion
 
 // #region render (with hot reload if dev)
-const renderApp = RootComponent => {
+const renderApp = (RootComponent: React.Component) => {
   const Application = () => (
     <AppContainer>
       <RootComponent />
@@ -35,7 +33,7 @@ const renderApp = RootComponent => {
   );
 
   // needed for react-snap:
-  if (bootstrapedElement.hasChildNodes()) {
+  if (bootstrapedElement && bootstrapedElement.hasChildNodes()) {
     loadComponents().then(() => {
       hydrate(<Application />, bootstrapedElement);
     });

@@ -9,7 +9,6 @@ import createHistory from 'history/createBrowserHistory';
 // #endregion
 import withMainLayout from './hoc/withMainLayout';
 import MainRoutes from './routes/MainRoutes';
-import ScrollToTop from './components/scrollToTop/ScrollToTop';
 import LogoutRoute from './components/logoutRoute';
 import AuthProvider from './contexts/auth/providerComponent';
 // #endregion
