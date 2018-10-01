@@ -16,13 +16,13 @@
     "rootDir": "src",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
+    "noImplicitThis": false,
+    "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true
   },
   "include": [
-    "./src/"
+    "./src/**/*"
   ],
   "exclude": [
     "node_modules",

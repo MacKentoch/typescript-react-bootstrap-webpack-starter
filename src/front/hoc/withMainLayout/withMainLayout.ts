@@ -1,11 +1,9 @@
-
-
 // #region imports
-import React, { Component } from 'react';
+import * as React from 'react';
 import wrapDisplayName from 'recompose/wrapDisplayName';
 import compose from 'recompose/compose';
 import { withRouter } from 'react-router';
-import { type Match, type Location, type RouterHistory } from 'react-router';
+import { RouteComponentProps } from 'react-router';
 import Container from 'reactstrap/lib/Container';
 import NavigationBar from '../../components/navigation';
 import BackToTop from '../../components/backToTop/BackToTop';
@@ -15,27 +13,18 @@ import registerServiceWorker from '../../services/sw/registerServiceWorker';
 // #endregion
 
 // #region flow types
-type Props = {
-  // from withRouter HOC:
-  match: Match,
-  location: Location,
-  history: RouterHistory,
+interface Props extends RouteComponentProps {}
 
-  ...any,
-};
-
-type State = {
-  navModel: Navigation,
-
-  ...any,
-};
+interface State {
+  navModel: Navigation;
+}
 // #endregion
 
 // #region withMainLayout HOC
 function withMainLayout(/* no args option yet, but could pass them here */) {
   return BaseComponent => {
     // #region returned Component
-    class WithMainLayout extends Component<Props, State> {
+    class WithMainLayout extends React.Component<Props, State> {
       state = { navModel: navigationModel };
 
       // #region lifecycle

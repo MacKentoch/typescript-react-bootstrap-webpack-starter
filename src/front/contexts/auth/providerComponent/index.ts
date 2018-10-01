@@ -1,7 +1,5 @@
-
-
 // #region imports
-import React, { Component } from 'react';
+import * as React from 'react';
 import { AuthContextProvider, type AuthData, type User } from '../context';
 import auth from '../../../services/auth';
 // #endregion
@@ -22,7 +20,7 @@ export type AuthProviderState = {
 // #endregion
 
 // #region PROVIDER component
-export default class AuthProvider extends Component<
+export default class AuthProvider extends React.Component<
   AuthProviderProps,
   AuthProviderState,
 > {

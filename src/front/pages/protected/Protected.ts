@@ -1,28 +1,15 @@
-
-
 // #region imports
-import React, { PureComponent } from 'react';
-import {
-  type Match,
-  type Location,
-  type RouterHistory,
-} from 'react-router-dom';
+import * as React from 'react';
+import { RouteComponentProps } from 'react-router';
 // #endregion
 
 // #region flow types
-type Props = {
-  // react-router 4:
-  match: Match,
-  location: Location,
-  history: RouterHistory,
+interface Props extends RouteComponentProps {}
 
-  ...any,
-};
-
-type State = any;
+interface State = {};
 // #endregion
 
-class Protected extends PureComponent<Props, State> {
+class Protected extends React.PureComponent<Props, State> {
   // #region lifecycle
   render() {
     return (

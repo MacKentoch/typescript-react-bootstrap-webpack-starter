@@ -1,13 +1,9 @@
 
 
 // #region imports
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 import axios from 'axios';
-import {
-  type Match,
-  type Location,
-  type RouterHistory,
-} from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import Button from 'reactstrap/lib/Button';
 import Row from 'reactstrap/lib/Row';
 import Col from 'reactstrap/lib/Col';
@@ -18,25 +14,17 @@ import { type AuthContextProps } from '../../contexts/auth/consumerHOC';
 // #endregion
 
 // #region flow types
-type Props = {
-  // react-router 4:
-  match: Match,
-  location: Location,
-  history: RouterHistory,
-
-  ...any,
+interface Props extends RouteComponentProps  {
 } & AuthContextProps;
 
-type State = {
+interface State {
   email: string,
   password: string,
   isLogging: boolean,
-
-  ...any,
 };
 // #endregion
 
-class Login extends PureComponent<Props, State> {
+class Login extends React.PureComponent<Props, State> {
   state = {
     email: '',
     password: '',

@@ -1,7 +1,5 @@
-
-
 // #region imports
-import React, { Component } from 'react';
+import * as React from 'react';
 import wrapDisplayName from 'recompose/wrapDisplayName';
 import AnimatedDiv from './styled/AnimatedDiv';
 // #endregion
@@ -14,7 +12,7 @@ type State = any;
 
 function withEnterAnimation() {
   return (BaseComponent: any) => {
-    class WithEnterAnimation extends Component<Props, State> {
+    class WithEnterAnimation extends React.Component<Props, State> {
       render() {
         const { ...passProps } = this.props;
 
