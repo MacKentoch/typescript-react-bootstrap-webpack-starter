@@ -1,21 +1,20 @@
 // #region imports
 import * as React from 'react';
-import { AuthContextProvider, type AuthData, type User } from '../context';
+import { AuthContextProvider } from '../context';
 import auth from '../../../services/auth';
 // #endregion
 
 // #region flow types
 export type AuthProviderProps = {
-  initialState: {} & AuthData,
-};
+  initialState: {},
+} & AuthData;
+
 export type AuthProviderState = {
   checkIsAuthenticated: () => boolean,
   checkTokenIsExpired: () => boolean,
   setToken: (token: string) => any,
   setUserInfo: (user: User) => any,
   disconnectUser: () => boolean,
-
-  ...any,
 } & AuthData;
 // #endregion
 

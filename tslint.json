@@ -1,10 +1,15 @@
 {
-  "defaultSeverity": "error",
+  "defaultSeverity": "warning",
   "extends": [
-    "tslint-eslint-rules",
-    "tslint-react"
+    // "tslint-eslint-rules",
+    // "tslint-react"
   ],
-  // "jsRules": {},
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**/*.ts"
+    ]
+  },
+  "jsRules": {},
   // "rules": {
   //   "align": [
   //     true,
@@ -31,6 +36,7 @@
   //   "no-any": true,
   //   "no-arg": true,
   //   "no-bitwise": true,
+  //   // "no-unused-variable": [true, "react"],
   //   "no-console": [
   //     true,
   //     "log",

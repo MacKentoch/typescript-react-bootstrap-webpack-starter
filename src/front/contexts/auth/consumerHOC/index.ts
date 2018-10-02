@@ -1,7 +1,5 @@
-
-
 // #region imports
-import React, { Component } from 'react';
+import * as React from 'react';
 import wrapDisplayName from 'recompose/wrapDisplayName';
 import { AuthContextConsumer } from '../context/index';
 import { type AuthProviderState } from '../providerComponent';
@@ -14,7 +12,7 @@ export type AuthContextProps = { ...any } & AuthProviderState;
 // #region CONSUMER HOC
 export default function withAuth(/* additionnal args if needed */) {
   return BaseComponent => {
-    class WithAuth extends Component<any, any> {
+    class WithAuth extends React.Component<any, any> {
       render() {
         const { ...passProps } = this.props;
 
