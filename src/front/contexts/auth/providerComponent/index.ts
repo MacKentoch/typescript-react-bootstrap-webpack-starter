@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { AuthContextProvider } from '../context';
 import auth from '../../../services/auth';
+import { User } from '../../../types/user/user';
 // #endregion
 
 // #region flow types
