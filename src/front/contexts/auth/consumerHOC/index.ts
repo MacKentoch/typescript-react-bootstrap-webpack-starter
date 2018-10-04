@@ -2,16 +2,16 @@
 import * as React from 'react';
 import wrapDisplayName from 'recompose/wrapDisplayName';
 import { AuthContextConsumer } from '../context/index';
-import { type AuthProviderState } from '../providerComponent';
+import { AuthProviderState } from '../providerComponent';
 // #endregion
 
 // #region flow types
-export type AuthContextProps = { ...any } & AuthProviderState;
+export type AuthContextProps = {} & AuthProviderState;
 // #endregion
 
 // #region CONSUMER HOC
 export default function withAuth(/* additionnal args if needed */) {
-  return BaseComponent => {
+  return (BaseComponent: React.Component) => {
     class WithAuth extends React.Component<any, any> {
       render() {
         const { ...passProps } = this.props;

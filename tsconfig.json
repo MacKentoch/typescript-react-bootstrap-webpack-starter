@@ -1,25 +1,25 @@
 {
   "compilerOptions": {
-    "alwaysStrict": true,
+    "alwaysStrict": true, // Parse in strict mode and emit 'use strict' for each source file. Requires TypeScript version 2.1 or later.
     "outDir": "./docs/assets/", // path to output directory
     "sourceMap": true, // allow sourcemap support
     "strictNullChecks": true, // enable strict null checks as a best practice
-    "module": "esnext", // specify module code generation
+    "module": "es2015", // specify module code generation
     "jsx": "react", // use typescript to transpile jsx to js
     "target": "es5", // specify ECMAScript target version
     "allowJs": true, // allow a partial TypeScript and JavaScript codebase
     "allowSyntheticDefaultImports": true, // allow default imports from module without default (as babel does)
     "esModuleInterop": true, // enables emit between commonJS and ES module via creation of namespace or all imports
     "resolveJsonModule": true, // enable importing of JSON files
-    "lib": ["es6", "dom"],
-    "moduleResolution": "node",
-    "rootDir": "src",
+    "lib": ["es6", "dom"], // Specify library file to be included in the compilation. Requires TypeScript version 2.0 or later.
+    "moduleResolution": "node", // Specifies module resolution strategy: 'node' (Node) or 'classic' (TypeScript pre 1.6) .
+    "rootDir": "src", // Specifies the root directory of input files. Use to control the output directory structure with --outDir.
     "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": false,
-    "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true
+    "noImplicitReturns": true, // Report error when not all code paths in function return a value.
+    "noImplicitThis": false, // Raise error on 'this' expressions with an implied any type.
+    "noImplicitAny": false, // Raise error on 'this' expressions with an implied any type.
+    "suppressImplicitAnyIndexErrors": true, // Suppress noImplicitAny errors for indexing objects lacking index signatures.
+    "noUnusedLocals": true // Report errors on unused locals. Requires TypeScript version 2.0 or later.
   },
   "include": [
     "./src/**/*"
