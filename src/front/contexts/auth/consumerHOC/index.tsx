@@ -1,7 +1,7 @@
 // #region imports
 import * as React from 'react';
 import wrapDisplayName from 'recompose/wrapDisplayName';
-import { AuthContextConsumer } from '../context/index';
+import { AuthContextConsumer } from '../context';
 import { AuthProviderState } from '../providerComponent';
 // #endregion
 
