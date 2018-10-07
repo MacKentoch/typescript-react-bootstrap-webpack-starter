@@ -11,14 +11,14 @@ export type AuthContextProps = {} & AuthProviderState;
 
 // #region CONSUMER HOC
 export default function withAuth(/* additionnal args if needed */) {
-  return (BaseComponent: React.Component) => {
+  return (BaseComponent: any) => {
     class WithAuth extends React.Component<any, any> {
       render() {
         const { ...passProps } = this.props;
 
         return (
           <AuthContextConsumer>
-            {(fromAuthProps: AuthContextProps) => (
+            {fromAuthProps => (
               <BaseComponent {...fromAuthProps} {...passProps} />
             )}
           </AuthContextConsumer>

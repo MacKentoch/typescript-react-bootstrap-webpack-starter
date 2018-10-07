@@ -33,6 +33,6 @@
     "./src/**/*.js"
   ],
   "exclude": [
-    // "src/test/setupTests.ts"
+    "node_modules"
   ]
 }
