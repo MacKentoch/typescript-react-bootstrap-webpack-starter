@@ -1,6 +1,6 @@
 // #region imports
 import * as React from 'react';
-import wrapDisplayName from 'recompose/wrapDisplayName';
+import hoistNonReactStatics from 'hoist-non-react-statics';
 import { AuthContextConsumer } from '../context';
 import { AuthProviderState } from '../providerComponent';
 // #endregion
@@ -26,15 +26,7 @@ export default function withAuth(/* additionnal args if needed */) {
       }
     }
 
-    // #region add static displayName for dev
-    /* eslint-disable no-process-env */
-    if (process.env.NODE_ENV !== 'production') {
-      WithAuth.displayName = wrapDisplayName(BaseComponent, 'WithAuth');
-    }
-    /* eslint-enable no-process-env */
-    // #endregion
-
-    return WithAuth;
+    return hoistNonReactStatics(WithAuth, BaseComponent);
   };
 }
 // #endregion
