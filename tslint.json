@@ -9,7 +9,12 @@
       "node_modules/**/*.ts"
     ]
   },
-  "jsRules": {},
+  "jsRules": {
+    "trailing-comma": [true, {
+      "multiline": "always",
+      "singleline": "always"
+    }],
+  },
   // "rules": {
   //   "align": [
   //     true,
