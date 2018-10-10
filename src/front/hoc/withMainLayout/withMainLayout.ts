@@ -8,7 +8,7 @@ import Container from 'reactstrap/lib/Container';
 import NavigationBar from '../../components/navigation';
 import BackToTop from '../../components/backToTop/BackToTop';
 import navigationModel from '../../config/navigation';
-import { type Navigation } from '../../config/navigation';
+import { Navigation } from '../../config/navigation';
 import registerServiceWorker from '../../services/sw/registerServiceWorker';
 // #endregion
 
