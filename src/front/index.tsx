@@ -25,7 +25,7 @@ injectGlobalStyle();
 // #endregion
 
 // #region render (with hot reload if dev)
-const renderApp = (RootComponent: React.Component) => {
+const renderApp = (RootComponent: React.Component<any, any>) => {
   const Application = () => (
     <AppContainer>
       <RootComponent />

@@ -7,12 +7,11 @@ import WithRightMargin from './styled/WithRightMargin';
 
 // #region flow types
 interface Props {
-  position: 'bottom-left' | 'bottom-right',
-  onClick: (event: SyntheticEvent<>) => any,
-  children: any,
-  motionStyle: any,
-  ...any,
-};
+  position?: 'bottom-left' | 'bottom-right';
+  onClick: (event: React.SyntheticEvent) => any;
+  children?: any;
+  motionStyle: any;
+}
 // #endregion
 
 // #region constants
@@ -34,12 +33,7 @@ const defaultStyle = {
 };
 // #endregion
 
-function BackToTopButton ({
-  onClick,
-  position,
-  children,
-  motionStyle,
-}: Props)  {
+function BackToTopButton({ onClick, position, children, motionStyle }: Props) {
   const buttonStyle = setPosition(position, {
     ...motionStyle,
     ...defaultStyle,
@@ -61,7 +55,7 @@ function BackToTopButton ({
       {!!children && children}
     </button>
   );
-};
+}
 
 // #region statics
 BackToTopButton.defaultProps = {

@@ -1,12 +1,8 @@
 // #region imports
 import * as React from 'react';
 import { Route, Redirect, withRouter } from 'react-router-dom';
-import {
-  type Match,
-  type Location,
-  type RouterHistory,
-} from 'react-router-dom';
-import { type AuthContextProps } from '../../contexts/auth/consumerHOC';
+import { Match, Location, RouterHistory } from 'react-router-dom';
+import { AuthContextProps } from '../../contexts/auth/consumerHOC';
 // #endregion
 
 // #region flow types
@@ -15,8 +11,6 @@ type Props = {
   match: Match,
   location: Location,
   history: RouterHistory,
-
-  ...any,
 } & AuthContextProps;
 
 type State = any;

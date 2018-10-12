@@ -103,7 +103,7 @@ class BackToTop extends React.Component<Props, State> {
   // #endregion
 
   // #region on button click (smooth scroll)
-  handlesOnBackButtonClick = (event: SyntheticEvent<>) => {
+  handlesOnBackButtonClick = (event: React.SyntheticEvent) => {
     if (event) {
       event.preventDefault();
     }
