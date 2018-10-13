@@ -1,17 +1,14 @@
 // #region imports
 import * as React from 'react';
-import { Route, Redirect, withRouter } from 'react-router-dom';
+import { Route, Redirect, withRouter, BrowserRouter } from 'react-router-dom';
 import { Match, Location, RouterHistory } from 'react-router-dom';
 import { AuthContextProps } from '../../contexts/auth/consumerHOC';
 // #endregion
 
 // #region flow types
-type Props = {
-  // react-router 4:
-  match: Match,
-  location: Location,
-  history: RouterHistory,
-} & AuthContextProps;
+interface BaseProps {};
+
+type Props=  BaseProps extends BrowserRouter & AuthContextProps;
 
 type State = any;
 // #endregion
