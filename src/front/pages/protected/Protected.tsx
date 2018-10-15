@@ -6,7 +6,7 @@ import { RouteComponentProps } from 'react-router';
 // #region flow types
 interface Props extends RouteComponentProps {}
 
-interface State = {};
+interface State {}
 // #endregion
 
 class Protected extends React.PureComponent<Props, State> {

@@ -1,24 +1,11 @@
-
-
 // #region imports
 import React, { PureComponent } from 'react';
-import {
-  type Match,
-  type Location,
-  type RouterHistory,
-} from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 // #endregion
 
 // #region flow types
-type Props = {
-  // react-router 4:
-  match: Match,
-  location: Location,
-  history: RouterHistory,
-
-  ...any,
-};
-type State = any;
+interface Props extends RouteComponentProps {}
+interface State {}
 // #endregion
 
 class About extends PureComponent<Props, State> {
