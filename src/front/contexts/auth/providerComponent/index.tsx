@@ -6,17 +6,17 @@ import { User } from '../../../types/user/user';
 // #endregion
 
 // #region flow types
-export type AuthProviderProps = {
-  initialState: {},
-} & AuthData;
+export interface AuthProviderProps extends AuthData {
+  initialState: {};
+}
 
-export type AuthProviderState = {
-  checkIsAuthenticated: () => boolean,
-  checkTokenIsExpired: () => boolean,
-  setToken: (token: string) => any,
-  setUserInfo: (user: User) => any,
-  disconnectUser: () => boolean,
-} & AuthData;
+export interface AuthProviderState extends AuthData {
+  checkIsAuthenticated: () => boolean;
+  checkTokenIsExpired: () => boolean;
+  setToken: (token: string) => any;
+  setUserInfo: (user: User) => any;
+  disconnectUser: () => boolean;
+}
 // #endregion
 
 // #region PROVIDER component
@@ -58,8 +58,7 @@ export default class AuthProvider extends React.Component<
           ...this.state,
         }}
       >
-        {' '}
-        {children}{' '}
+        {children}
       </AuthContextProvider>
     );
   }
@@ -91,7 +90,7 @@ export default class AuthProvider extends React.Component<
     this.setState({ token, isAuthenticated: true });
   };
 
-  setUserInfo = (user: User = null) => {
+  setUserInfo = (user: User) => {
     if (typeof user === 'object') {
       auth.setUserInfo(user);
       this.setState({ user });
