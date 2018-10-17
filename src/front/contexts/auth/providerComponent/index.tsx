@@ -1,13 +1,13 @@
 // #region imports
 import * as React from 'react';
-import { AuthContextProvider, AuthData } from '../context';
+import { AuthContextProvider, AuthData, authDefault } from '../context';
 import auth from '../../../services/auth';
 import { User } from '../../../types/user/user';
 // #endregion
 
 // #region flow types
 export interface AuthProviderProps extends AuthData {
-  initialState: {};
+  initialState: AuthData;
 }
 
 export interface AuthProviderState extends AuthData {

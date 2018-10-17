@@ -10,17 +10,19 @@ export interface User {
 export interface AuthData {
   isAuthenticated: boolean;
   isExpiredToken: boolean;
-  lastAuthDate?: Date;
-
+  lastAuthDate?: Date | null;
   token: string;
-  user: User;
+  user: User | null;
 }
 // #endregion
 
 // #region default context value
-export const authDefault = {
+export const authDefault: AuthData = {
   isAuthenticated: false,
   lastAuthDate: null,
+  isExpiredToken: true,
+  token: '',
+  user: null,
 };
 // #endregion
 

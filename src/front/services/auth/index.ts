@@ -1,5 +1,3 @@
-
-
 // #region imports
 import decode from 'jwt-decode';
 import isAfter from 'date-fns/is_after';
@@ -229,7 +227,7 @@ export const auth = {
    * @returns {boolean} success/failure flag
    */
   setUserInfo(
-    value: string = '',
+    value: any = '',
     toStorage: Storage = APP_PERSIST_STORES_TYPES[0],
     userInfoKey: UserInfoKey = USER_INFO,
   ): any {
