@@ -44,7 +44,7 @@ export const auth = {
   getToken(
     fromStorage: Storage = APP_PERSIST_STORES_TYPES[0],
     tokenKey: TokenKey = TOKEN_KEY,
-  ): ?string {
+  ): string | null {
     // localStorage:
     if (fromStorage === APP_PERSIST_STORES_TYPES[0]) {
       return (localStorage && localStorage.getItem(tokenKey)) || null;
@@ -69,22 +69,25 @@ export const auth = {
     value: string = '',
     toStorage: Storage = APP_PERSIST_STORES_TYPES[0],
     tokenKey: TokenKey = TOKEN_KEY,
-  ): ?string {
+  ): boolean {
     if (!value || value.length <= 0) {
-      return;
+      return false;
     }
     // localStorage:
     if (toStorage === APP_PERSIST_STORES_TYPES[0]) {
       if (localStorage) {
         localStorage.setItem(tokenKey, value);
+        return true;
       }
     }
     // sessionStorage:
     if (toStorage === APP_PERSIST_STORES_TYPES[1]) {
       if (sessionStorage) {
         sessionStorage.setItem(tokenKey, value);
+        return true;
       }
     }
+    return false;
   },
 
   /**
@@ -162,12 +165,12 @@ export const auth = {
    * @param {string} encodedToken - base 64 token received from server and stored in local storage
    * @returns {date | null} returns expiration date or null id expired props not found in decoded token
    */
-  getTokenExpirationDate(encodedToken: any): Date {
+  getTokenExpirationDate(encodedToken: string): Date {
     if (!encodedToken) {
       return new Date(0); // is expired
     }
 
-    const token = decode(encodedToken);
+    const token: { exp: any } = decode(encodedToken);
     if (!token.exp) {
       return new Date(0); // is expired
     }
@@ -203,15 +206,18 @@ export const auth = {
   getUserInfo(
     fromStorage: Storage = APP_PERSIST_STORES_TYPES[0],
     userInfoKey: UserInfoKey = USER_INFO,
-  ): ?string {
+  ): string | null {
     // localStorage:
     if (fromStorage === APP_PERSIST_STORES_TYPES[0]) {
-      return (localStorage && parse(localStorage.getItem(userInfoKey))) || null;
+      return (
+        (localStorage && parse(localStorage.getItem(userInfoKey) || '')) || null
+      );
     }
     // sessionStorage:
     if (fromStorage === APP_PERSIST_STORES_TYPES[1]) {
       return (
-        (sessionStorage && parse(sessionStorage.getItem(userInfoKey))) || null
+        (sessionStorage && parse(sessionStorage.getItem(userInfoKey) || '')) ||
+        null
       );
     }
     // default:
