@@ -6,8 +6,10 @@ import WithRightMargin from './styled/WithRightMargin';
 // #endregion
 
 // #region flow types
+
+export type ButtonPosition = 'bottom-left' | 'bottom-right';
 interface Props {
-  position?: 'bottom-left' | 'bottom-right';
+  position?: ButtonPosition | null;
   onClick: (event: React.SyntheticEvent) => any;
   children?: any;
   motionStyle: any;

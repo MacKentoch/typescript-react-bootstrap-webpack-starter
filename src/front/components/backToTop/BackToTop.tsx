@@ -9,7 +9,7 @@ import BackToTopButton from './backToTopButton/BackToTopButton';
 // #region flow types
 interface Props {
   minScrollY: number;
-  scrollTo?: string;
+  scrollTo?: string | null;
   onScrollDone?: () => void;
 }
 
