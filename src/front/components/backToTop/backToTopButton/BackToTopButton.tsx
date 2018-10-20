@@ -7,8 +7,11 @@ import WithRightMargin from './styled/WithRightMargin';
 
 // #region flow types
 
-export type ButtonPosition = 'bottom-left' | 'bottom-right';
-interface Props {
+export enum ButtonPosition {
+  'bottom-left',
+  'bottom-right'
+};
+export interface Props {
   position?: ButtonPosition | null;
   onClick: (event: React.SyntheticEvent) => any;
   children?: any;
@@ -68,16 +71,16 @@ BackToTopButton.displayName = 'BackToTopButton';
 // #endregion
 
 // #region helpers
-function setPosition(position = 'bottom-right', refStyle = defaultStyle): any {
+function setPosition(position = ButtonPosition["bottom-right"], refStyle = defaultStyle): any {
   const style = { ...refStyle };
 
   switch (position) {
-    case 'bottom-right':
+    case ButtonPosition["bottom-right"]:
       style.right = sideOffset;
       style.left = '';
       return style;
 
-    case 'bottom-left':
+    case ButtonPosition["bottom-left"]:
       style.right = '';
       style.left = sideOffset;
       return style;

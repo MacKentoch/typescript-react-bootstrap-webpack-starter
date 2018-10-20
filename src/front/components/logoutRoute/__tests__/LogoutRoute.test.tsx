@@ -1,5 +1,3 @@
-
-
 // #region imports
 import React from 'react';
 import renderer from 'react-test-renderer'; // needed both for snpashot testing but also to prevent errors from enzyme
@@ -10,7 +8,15 @@ import LogoutRoute from '../LogoutRoute';
 describe('LogoutRoute component', () => {
   it('renders as expected', () => {
     const props = {
-      disconnectUser: () => {},
+      disconnectUser: () => true,
+      checkIsAuthenticated: () => false,
+      checkTokenIsExpired: () => true,
+      setToken: () => {},
+      setUserInfo: () => {},
+      isAuthenticated: false,
+      isExpiredToken: true,
+      token: '',
+      user: null,
     };
 
     const component = renderer
