@@ -9,28 +9,25 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
-import { withRouter } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { RouterChildContext } from 'react-router-dom';
 import { AuthContextProps } from '../../contexts/auth/consumerHOC';
+import { Link } from '../../config/navigation';
 // #endregion
 
 // #region flow types
 type Props = {
-  // // withRouter HOC:
-  // match: Match,
-  // location: Location,
-  // history: RouterHistory,
-
   // parent props:
   brand: string,
   handleLeftNavItemClick: OnLeftNavButtonClick,
   handleRightNavItemClick: OnRightNavButtonClick,
   navModel: {
-    leftLinks: Array<LeftLink>,
-    rightLinks: Array<RightLink>,
+    leftLinks: Array<Link>,
+    rightLinks: Array<Link>,
   },
 } & AuthContextProps &
-  RouterChildContext;
+  RouterChildContext &
+  RouteComponentProps;
 
 type State = {
   isOpen: boolean,
@@ -62,7 +59,7 @@ class NavigationBar extends React.PureComponent<Props, State> {
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            {rightLinks.map(({ label, link, viewName }, index) => (
+            {rightLinks.map(({ label, link }, index) => (
               <NavItem key={`${index}`}>
                 <NavLink href="#" onClick={this.handlesNavItemClick(link)}>
                   {label}

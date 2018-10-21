@@ -3,7 +3,7 @@
 // #region imports
 import * as React from 'react';
 import { Motion, spring, presets } from 'react-motion';
-import BackToTopButton from './backToTopButton/BackToTopButton';
+import BackToTopButton, {ButtonPosition} from './backToTopButton/BackToTopButton';
 // #endregion
 
 // #region flow types
@@ -33,7 +33,7 @@ class BackToTop extends React.Component<Props, State> {
   };
 
   // #region lifecycle methods
-  componentWillMount() {
+  componentDidMount() {
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', this.handleWindowScroll);
     }
@@ -51,7 +51,7 @@ class BackToTop extends React.Component<Props, State> {
       <Motion style={{ x: spring(showBackButton ? 0 : 120, presets.stiff) }}>
         {({ x }) => (
           <BackToTopButton
-            position={'bottom-right'}
+            position={ ButtonPosition['bottom-right'] }
             onClick={this.handlesOnBackButtonClick}
             motionStyle={{
               WebkitTransform: `translate3d(${x}px, 0, 0)`,
@@ -71,14 +71,16 @@ class BackToTop extends React.Component<Props, State> {
       const { minScrollY } = this.props;
 
       /* eslint-disable no-undefined */
+      const windowPagYOffset = window.pageYOffset;
+      const documentPageYOffset: any = (
+        document.documentElement ||
+        document.body.parentNode ||
+        document.body
+      );
       const currentWindowScrollY =
         window.pageYOffset !== undefined
-          ? window.pageYOffset
-          : (
-              document.documentElement ||
-              document.body.parentNode ||
-              document.body
-            ).scrollTop;
+          ? windowPagYOffset
+          : documentPageYOffset.scrollTop;
       /* eslint-enable no-undefined */
 
       // scroll event fires to often, using window.requestAnimationFrame to limit computations

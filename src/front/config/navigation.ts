@@ -1,5 +1,3 @@
-
-
 // #flow types
 export type Link = {
   label: string,
