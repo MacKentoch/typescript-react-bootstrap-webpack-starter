@@ -10,7 +10,6 @@ import {
   NavLink,
 } from 'reactstrap';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
-import { RouterChildContext } from 'react-router-dom';
 import { AuthContextProps } from '../../contexts/auth/consumerHOC';
 import { Link } from '../../config/navigation';
 // #endregion
@@ -19,14 +18,19 @@ import { Link } from '../../config/navigation';
 type Props = {
   // parent props:
   brand: string,
-  handleLeftNavItemClick: OnLeftNavButtonClick,
-  handleRightNavItemClick: OnRightNavButtonClick,
+  handleLeftNavItemClick: (
+    event: React.SyntheticEvent<any>,
+    viewName: string,
+  ) => any,
+  handleRightNavItemClick: (
+    event: React.SyntheticEvent<any>,
+    viewName: string,
+  ) => any,
   navModel: {
     leftLinks: Array<Link>,
     rightLinks: Array<Link>,
   },
 } & AuthContextProps &
-  RouterChildContext &
   RouteComponentProps;
 
 type State = {
@@ -81,7 +85,7 @@ class NavigationBar extends React.PureComponent<Props, State> {
   // #endregion
 
   // #region navigation bar toggle
-  toggle = (evt: SyntheticEvent<>) => {
+  toggle = (evt: React.SyntheticEvent<any>) => {
     if (evt) {
       evt.preventDefault();
     }
@@ -90,7 +94,9 @@ class NavigationBar extends React.PureComponent<Props, State> {
   // #endregion
 
   // #region handlesNavItemClick event
-  handlesNavItemClick = (link: string = '/') => (evt: SyntheticEvent<>) => {
+  handlesNavItemClick = (link: string = '/') => (
+    evt: React.SyntheticEvent<any>,
+  ) => {
     if (evt) {
       evt.preventDefault();
     }
@@ -100,7 +106,7 @@ class NavigationBar extends React.PureComponent<Props, State> {
   // #endregion
 
   // #region disconnect
-  handlesDisconnect = (evt: SyntheticEvent<>) => {
+  handlesDisconnect = (evt: React.SyntheticEvent<any>) => {
     if (evt) {
       evt.preventDefault();
     }

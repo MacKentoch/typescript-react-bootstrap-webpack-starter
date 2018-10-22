@@ -1,5 +1,3 @@
-
-
 // #region imports
 import React from 'react';
 import renderer from 'react-test-renderer'; // needed both for snpashot testing but also to prevent errors from enzyme
@@ -31,6 +29,16 @@ describe('NavigationBar component', () => {
           },
         ],
       },
+      token: null,
+      user: null,
+      isAuthenticated: false,
+      isExpiredToken: true,
+      lastAuthDate: null,
+      checkIsAuthenticated: () => false,
+      checkTokenIsExpired: () => true,
+      setToken: () => {},
+      setUserInfo: () => {},
+      disconnectUser: () => true,
     };
 
     const component = renderer
