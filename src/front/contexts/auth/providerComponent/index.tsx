@@ -22,7 +22,8 @@ export interface AuthProviderState extends AuthData {
 // #region PROVIDER component
 export default class AuthProvider extends React.Component<
   AuthProviderProps,
-  AuthProviderState,
+  // tslint:disable-next-line:trailing-comma
+  AuthProviderState, // prettier-ignore
 > {
   static defaultProps = {
     initialState: {

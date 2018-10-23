@@ -8,5 +8,6 @@ export type UserData = {
 
 export interface User {
   token: string;
-  user: UserData;
+  user?: UserData;
+  email: string;
 }

@@ -1,13 +1,12 @@
 // #region imports
 import React, { Component } from 'react';
-import { RouteComponentProps } from 'react-router';
-import { withRouter } from 'react-router';
+import { withRouter, RouteComponentProps } from 'react-router';
 // #endregion
 
 // #region flow types
-interface Props extends RouteComponentProps {
-  children: React.ReactNode;
-}
+type Props = {
+  children: React.ReactNode,
+} & RouteComponentProps;
 
 type State = any;
 // #endregion

@@ -1,12 +1,9 @@
 // #region imports
 import { createContext } from 'react';
+import { User } from '../../../types/user/user';
 // #endregion
 
 // #region flow types
-export interface User {
-  email: string;
-}
-
 export interface AuthData {
   isAuthenticated: boolean;
   isExpiredToken: boolean;
