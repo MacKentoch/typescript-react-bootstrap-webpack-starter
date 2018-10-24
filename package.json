@@ -17,6 +17,7 @@
   },
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --no-cache",
+    "lint": "tslint --project tslint.json",
     "clean-docs": "rimraf docs/*",
     "prepare:index-html": "node ./scripts/prepareIndexHtml.js",
     "analyze": "rimraf docs/public/assets && cross-env NODE_ENV=production webpack -p --config webpack.analyze.config.js",

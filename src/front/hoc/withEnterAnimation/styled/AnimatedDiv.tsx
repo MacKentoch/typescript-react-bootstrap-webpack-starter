@@ -1,8 +1,10 @@
-
-
 // @region imports
 import styled, { keyframes, css } from 'styled-components';
 // #endregion
+
+interface Props {
+  viewEnter: boolean;
+}
 
 const fadeIn = keyframes`
   from {
@@ -15,7 +17,7 @@ const fadeIn = keyframes`
 `;
 
 const AnimatedDiv = styled.div`
-  ${({ viewEnter }) =>
+  ${({ viewEnter }: {} & Props) =>
     viewEnter &&
     css`
       opacity: 0;
