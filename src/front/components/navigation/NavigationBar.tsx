@@ -27,6 +27,7 @@ type Props = {
     viewName: string,
   ) => any,
   navModel: {
+    brand: string,
     leftLinks: Array<Link>,
     rightLinks: Array<Link>,
   },

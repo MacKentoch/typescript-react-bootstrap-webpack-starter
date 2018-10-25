@@ -10,14 +10,15 @@ import BackToTop from '../../components/backToTop/BackToTop';
 import navigationModel from '../../config/navigation';
 import { Navigation } from '../../config/navigation';
 import registerServiceWorker from '../../services/sw/registerServiceWorker';
+import { type } from 'os';
 // #endregion
 
 // #region flow types
-interface Props extends RouteComponentProps {}
+type Props = {} & RouteComponentProps;
 
-interface State {
-  navModel: Navigation;
-}
+type State = {
+  navModel: Navigation,
+};
 // #endregion
 
 // #region withMainLayout HOC
@@ -25,6 +26,8 @@ function withMainLayout(/* no args option yet, but could pass them here */) {
   return BaseComponent => {
     // #region returned Component
     class WithMainLayout extends React.Component<Props, State> {
+      static displayName = wrapDisplayName(BaseComponent, 'withMainLayout');
+
       state = { navModel: navigationModel };
 
       // #region lifecycle
@@ -57,26 +60,32 @@ function withMainLayout(/* no args option yet, but could pass them here */) {
       // #endregion
 
       /* eslint-disable no-unused-vars*/
-      handleLeftNavItemClick = (event: SyntheticEvent<>, viewName: string) => {
+      handleLeftNavItemClick = (
+        event: React.SyntheticEvent<any>,
+        viewName: string,
+      ) => {
         // something to do here?
       };
 
-      handleRightNavItemClick = (event: SyntheticEvent<>, viewName: string) => {
+      handleRightNavItemClick = (
+        event: React.SyntheticEvent<any>,
+        viewName: string,
+      ) => {
         // something to do here?
       };
       /* eslint-enable no-unused-vars*/
     }
 
     // #region add static displayName for dev
-    /* eslint-disable no-process-env */
-    if (process.env.NODE_ENV !== 'production') {
-      // HOC would obfuscate component name, this trick is helpful for dev (we don't care in production)
-      WithMainLayout.displayName = wrapDisplayName(
-        BaseComponent,
-        'withMainLayout',
-      );
-    }
-    /* eslint-enable no-process-env */
+    // /* eslint-disable no-process-env */
+    // if (process.env.NODE_ENV !== 'production') {
+    //   // HOC would obfuscate component name, this trick is helpful for dev (we don't care in production)
+    //   WithMainLayout.displayName = wrapDisplayName(
+    //     BaseComponent,
+    //     'withMainLayout',
+    //   );
+    // }
+    // /* eslint-enable no-process-env */
     // #endregion
 
     return compose(withRouter)(WithMainLayout);
