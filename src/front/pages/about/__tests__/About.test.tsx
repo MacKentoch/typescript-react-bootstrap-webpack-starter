@@ -1,5 +1,3 @@
-
-
 // #region imports
 import React from 'react';
 import renderer from 'react-test-renderer'; // needed both for snpashot testing but also to prevent errors from enzyme
@@ -9,9 +7,7 @@ import About from '../About';
 
 describe('About page', () => {
   it('renders as expected', () => {
-    const props = {
-      actions: {},
-    };
+    const props = {};
     const component = renderer
       .create(
         <div>
