@@ -8,11 +8,12 @@ import About from '../About';
 describe('About page', () => {
   it('renders as expected', () => {
     const props = {};
+
     const component = renderer
       .create(
         <div>
           <MemoryRouter>
-            <About {...props} />
+            <About />
           </MemoryRouter>
         </div>,
       )

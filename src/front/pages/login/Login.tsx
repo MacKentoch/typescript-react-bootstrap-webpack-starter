@@ -1,5 +1,3 @@
-
-
 // #region imports
 import * as React from 'react';
 import axios from 'axios';
@@ -10,14 +8,14 @@ import Col from 'reactstrap/lib/Col';
 import { appConfig } from '../../config/appConfig';
 import { getLocationOrigin } from '../../services/API/fetchTools';
 import userInfoMock from '../../mock/userInfo.json';
-import { type AuthContextProps } from '../../contexts/auth/consumerHOC';
+import { AuthContextProps } from '../../contexts/auth/consumerHOC';
+import { type } from 'os';
 // #endregion
 
 // #region flow types
-interface Props extends RouteComponentProps  {
-} & AuthContextProps;
+type Props = {} & RouteComponentProps & AuthContextProps;
 
-interface State {
+type State = {
   email: string,
   password: string,
   isLogging: boolean,
