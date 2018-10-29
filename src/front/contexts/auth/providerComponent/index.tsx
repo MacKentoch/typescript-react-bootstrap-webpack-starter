@@ -7,7 +7,7 @@ import { User } from '../../../types/user/user';
 
 // #region flow types
 export interface AuthProviderProps extends AuthData {
-  initialState: AuthData;
+  initialState?: AuthData;
 }
 
 export interface AuthProviderState extends AuthData {
