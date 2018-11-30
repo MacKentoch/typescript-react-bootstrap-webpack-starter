@@ -22,16 +22,12 @@ export interface AuthProviderState extends AuthData {
 // #region PROVIDER component
 export default class AuthProvider extends React.Component<
   AuthProviderProps,
-  // tslint:disable-next-line:trailing-comma
+  // tslint:disable-next-line: trailing-comma
   AuthProviderState, // prettier-ignore
 > {
   static defaultProps = {
     initialState: {
-      token: null,
-      user: null,
-      isAuthenticated: false,
-      isExpiredToken: true,
-      lastAuthDate: null,
+      ...authDefault,
     },
   };
 
