@@ -1,6 +1,6 @@
 // #region imports
+//  @ts-ignore
 import { createContext } from 'react';
-import { User } from '../../../types/user/user';
 // #endregion
 
 // #region flow types
@@ -24,9 +24,7 @@ export const authDefault: AuthData = {
 // #endregion
 
 // #region context
-const AuthContext = createContext({
-  ...authDefault,
-});
+const AuthContext = createContext<AuthData | null>({ ...authDefault });
 
 export const AuthContextProvider = AuthContext.Provider;
 export const AuthContextConsumer = AuthContext.Consumer;

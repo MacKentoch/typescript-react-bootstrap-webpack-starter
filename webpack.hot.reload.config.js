@@ -25,7 +25,7 @@ const config = {
   },
   resolve: {
     modules: ['src/front', 'node_modules'],
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
   },
   output: {
     path: outputPath,
@@ -36,10 +36,10 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(t|j)sx?$/,
         include: srcInclude,
+        use: { loader: 'awesome-typescript-loader' },
         exclude: [nodeModulesDir],
-        loaders: ['babel-loader'],
       },
       {
         test: /\.css$/,

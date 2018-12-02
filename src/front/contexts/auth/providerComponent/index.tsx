@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { AuthContextProvider, AuthData, authDefault } from '../context';
 import auth from '../../../services/auth';
-import { User } from '../../../types/user/user';
 // #endregion
 
 // #region flow types
@@ -22,8 +21,7 @@ export interface AuthProviderState extends AuthData {
 // #region PROVIDER component
 export default class AuthProvider extends React.Component<
   AuthProviderProps,
-  // tslint:disable-next-line: trailing-comma
-  AuthProviderState, // prettier-ignore
+  AuthProviderState
 > {
   static defaultProps = {
     initialState: {
@@ -32,7 +30,7 @@ export default class AuthProvider extends React.Component<
   };
 
   // #region lifecyle
-  constructor(props) {
+  constructor(props: AuthProviderProps) {
     super(props);
 
     // initialize state in constructor (otherwise function won't be passed)
@@ -62,7 +60,7 @@ export default class AuthProvider extends React.Component<
   // #endregion
 
   checkIsAuthenticated = (): boolean => {
-    const checkUserHasId = user => user && user.id;
+    const checkUserHasId = (user: User) => user && user.user && user.id;
     const user = auth.getUserInfo() ? auth.getUserInfo() : null;
     const isAuthenticated = auth.getToken() && checkUserHasId(user);
 
