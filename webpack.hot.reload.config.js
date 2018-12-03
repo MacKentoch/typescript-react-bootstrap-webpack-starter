@@ -25,22 +25,22 @@ const config = {
   },
   resolve: {
     modules: ['src/front', 'node_modules'],
-    extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   output: {
     path: outputPath,
     publicPath,
-    filename: '[name].js',
-    chunkFilename: '[name].js',
+    filename: '[name].[hash].js',
+    chunkFilename: '[name].[hash].js',
   },
   module: {
     rules: [
       {
         test: /\.(t|j)sx?$/,
-        include: srcInclude,
         use: { loader: 'awesome-typescript-loader' },
         exclude: [nodeModulesDir],
       },
+      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],

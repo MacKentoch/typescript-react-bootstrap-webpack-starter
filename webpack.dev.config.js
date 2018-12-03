@@ -25,7 +25,7 @@ const config = {
   },
   resolve: {
     modules: ['src/front', 'node_modules'],
-    extensions: ['.js', 'jsx', '.ts', '.tsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   output: {
     path: outputPath,

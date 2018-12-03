@@ -24,7 +24,7 @@ const config = {
   entry: { app: indexFile },
   resolve: {
     modules: ['src/front', 'node_modules'],
-    extensions: ['.js', 'jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   },
   output: {
     path: outputPath,
@@ -35,10 +35,11 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(t|j)sx?$/,
+        use: { loader: 'awesome-typescript-loader' },
         exclude: [nodeModulesDir],
-        loader: 'babel-loader',
       },
+      { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
