@@ -60,8 +60,8 @@ export default class AuthProvider extends React.Component<
   // #endregion
 
   checkIsAuthenticated = (): boolean => {
-    const checkUserHasId = (user: User) => user && user.user && user.id;
-    const user = auth.getUserInfo() ? auth.getUserInfo() : null;
+    const checkUserHasId = (user: User) => user && user.user && user.user.id;
+    const user: User = auth.getUserInfo() ? auth.getUserInfo() : null;
     const isAuthenticated = auth.getToken() && checkUserHasId(user);
 
     this.setState({

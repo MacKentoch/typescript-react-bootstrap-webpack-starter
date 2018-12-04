@@ -11,8 +11,12 @@
   },
   "jsRules": {
     "trailing-comma": [true, {
-      "multiline": "always",
+      "multiline": "",
       "singleline": "always"
     }]
+  },
+  "rules": {
+    "jsx-boolean-value": false,
+    "jsx-no-multiline-js": false
   }
 }
