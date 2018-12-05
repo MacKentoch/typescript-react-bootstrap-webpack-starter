@@ -10,20 +10,19 @@ import BackToTop from '../../components/backToTop/BackToTop';
 import navigationModel from '../../config/navigation';
 import { Navigation } from '../../config/navigation';
 import registerServiceWorker from '../../services/sw/registerServiceWorker';
-import { type } from 'os';
 // #endregion
 
 // #region flow types
 type Props = {} & RouteComponentProps;
 
 type State = {
-  navModel: Navigation,
+  navModel: Navigation;
 };
 // #endregion
 
 // #region withMainLayout HOC
 function withMainLayout(/* no args option yet, but could pass them here */) {
-  return BaseComponent => {
+  return (BaseComponent: any) => {
     // #region returned Component
     class WithMainLayout extends React.Component<Props, State> {
       static displayName = wrapDisplayName(BaseComponent, 'withMainLayout');

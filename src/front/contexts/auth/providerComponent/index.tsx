@@ -6,7 +6,7 @@ import auth from '../../../services/auth';
 
 // #region flow types
 export interface AuthProviderProps extends AuthData {
-  initialState?: AuthData;
+  initialState: AuthData;
 }
 
 export interface AuthProviderState extends AuthData {
@@ -62,7 +62,7 @@ export default class AuthProvider extends React.Component<
   checkIsAuthenticated = (): boolean => {
     const checkUserHasId = (user: User) => user && user.user && user.user.id;
     const user: User = auth.getUserInfo() ? auth.getUserInfo() : null;
-    const isAuthenticated = auth.getToken() && checkUserHasId(user);
+    const isAuthenticated = !!auth.getToken() && !!checkUserHasId(user);
 
     this.setState({
       isAuthenticated,
