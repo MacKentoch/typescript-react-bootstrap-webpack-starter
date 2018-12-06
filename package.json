@@ -76,7 +76,6 @@
     "@types/react-router-bootstrap": "^0.24.5",
     "@types/react-router-dom": "^4.2.0",
     "@types/react-tap-event-plugin": "^0.0.30",
-    "@types/reactstrap": "^6.4.3",
     "@types/recompose": "^0.26.5",
     "@types/redux": "^3.6.0",
     "@types/smoothscroll-polyfill": "^0.3.0",

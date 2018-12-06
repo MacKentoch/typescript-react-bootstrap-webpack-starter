@@ -17,25 +17,25 @@ import { Link } from '../../config/navigation';
 // #region flow types
 type Props = {
   // parent props:
-  brand: string,
+  brand: string;
   handleLeftNavItemClick: (
     event: React.SyntheticEvent<any>,
     viewName: string,
-  ) => any,
+  ) => any;
   handleRightNavItemClick: (
     event: React.SyntheticEvent<any>,
     viewName: string,
-  ) => any,
+  ) => any;
   navModel: {
-    brand: string,
-    leftLinks: Array<Link>,
-    rightLinks: Array<Link>,
-  },
+    brand: string;
+    leftLinks: Array<Link>;
+    rightLinks: Array<Link>;
+  };
 } & AuthContextProps &
   RouteComponentProps;
 
 type State = {
-  isOpen: boolean,
+  isOpen: boolean;
 };
 // #endregion
 
