@@ -5,7 +5,7 @@ import auth from '../../../services/auth';
 // #endregion
 
 // #region flow types
-export interface AuthProviderProps extends AuthData {
+export interface AuthProviderProps {
   initialState: AuthData;
 }
 
