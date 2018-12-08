@@ -4,7 +4,7 @@ import wrapDisplayName from 'recompose/wrapDisplayName';
 import compose from 'recompose/compose';
 import { withRouter } from 'react-router';
 import { RouteComponentProps } from 'react-router';
-import Container from 'reactstrap/lib/Container';
+import { Container } from 'reactstrap';
 import NavigationBar from '../../components/navigation';
 import BackToTop from '../../components/backToTop/BackToTop';
 import navigationModel from '../../config/navigation';
