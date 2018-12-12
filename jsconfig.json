@@ -5,5 +5,8 @@
       "redux",
       "react-router",
     ]
-  }
+  },
+  "plugins": [{
+    "name": "typescript-styled-plugin"
+  }]
 }

@@ -1,17 +1,17 @@
 // #region imports
-import React, { Component } from 'react';
+import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router';
 // #endregion
 
 // #region flow types
 type Props = {
-  children: React.ReactNode,
+  children: JSX.Element;
 } & RouteComponentProps;
 
 type State = any;
 // #endregion
 
-class ScrollToTop extends Component<Props, State> {
+class ScrollToTop extends React.Component<Props, State> {
   // #region lifecycle
   componentDidUpdate(prevProps: Props) {
     if (window) {
@@ -26,6 +26,7 @@ class ScrollToTop extends Component<Props, State> {
 
   render() {
     const { children } = this.props;
+
     return children;
   }
   // #endregion

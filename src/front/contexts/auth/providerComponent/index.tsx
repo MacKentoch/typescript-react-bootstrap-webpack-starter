@@ -7,6 +7,7 @@ import auth from '../../../services/auth';
 // #region flow types
 export interface AuthProviderProps {
   initialState: AuthData;
+  children: JSX.Element;
 }
 
 export interface AuthProviderState extends AuthData {

@@ -1,10 +1,10 @@
-
-
 // #region imports
 import styled from 'styled-components';
 // #endregion
 
-const WithRightMargin = styled.div`
+type Props = any;
+
+const WithRightMargin = styled.div<Props>`
   margin-right: 10px;
 `;
 

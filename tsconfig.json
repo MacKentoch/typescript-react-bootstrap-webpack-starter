@@ -10,6 +10,9 @@
       "es2015",
       "es2015.promise"
     ],
+    "plugins": [{
+      "name": "typescript-styled-plugin"
+    }],
     /* Specify library files to be included in the compilation. */
     // "allowJs": true,                       /* Allow javascript files to be compiled. */
     // "checkJs": true,                       /* Report errors in .js files. */
