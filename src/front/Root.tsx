@@ -11,6 +11,7 @@ import withMainLayout from './hoc/withMainLayout';
 import MainRoutes from './routes/MainRoutes';
 import LogoutRoute from './components/logoutRoute';
 import AuthProvider from './contexts/auth/providerComponent';
+import GlobalStyle from './style/GlobalStyles';
 // #endregion
 
 // #region flow types
@@ -30,18 +31,21 @@ class Root extends React.Component<Props, State> {
   render() {
     return (
       <Router history={history}>
-        <AuthProvider>
-          <ScrollToTop>
-            <Switch>
-              <Route exact path="/login" component={LoadableLogin} />
-              {/* Application with main layout (could have multiple applications with different layouts) */}
-              <MainApp />
-              {/* logout: just redirects to login (App will take care of removing the token) */}
-              <LogoutRoute path="/logout" />
-              <Route component={LoadablePageNotFound} />
-            </Switch>
-          </ScrollToTop>
-        </AuthProvider>
+        <React.Fragment>
+          <GlobalStyle />
+          <AuthProvider>
+            <ScrollToTop>
+              <Switch>
+                <Route exact path="/login" component={LoadableLogin} />
+                {/* Application with main layout (could have multiple applications with different layouts) */}
+                <MainApp />
+                {/* logout: just redirects to login (App will take care of removing the token) */}
+                <LogoutRoute path="/logout" />
+                <Route component={LoadablePageNotFound} />
+              </Switch>
+            </ScrollToTop>
+          </AuthProvider>
+        </React.Fragment>
       </Router>
     );
   }
