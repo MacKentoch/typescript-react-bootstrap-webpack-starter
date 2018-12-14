@@ -1,5 +1,6 @@
 // #region imports
 import * as React from 'react';
+import { Fragment } from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
 import { compose } from 'recompose';
 import loadable from 'loadable-components';
@@ -31,7 +32,7 @@ class Root extends React.Component<Props, State> {
   render() {
     return (
       <Router history={history}>
-        <React.Fragment>
+        <Fragment>
           <GlobalStyle />
           <AuthProvider>
             <ScrollToTop>
@@ -45,7 +46,7 @@ class Root extends React.Component<Props, State> {
               </Switch>
             </ScrollToTop>
           </AuthProvider>
-        </React.Fragment>
+        </Fragment>
       </Router>
     );
   }
