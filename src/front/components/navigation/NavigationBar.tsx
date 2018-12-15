@@ -18,6 +18,12 @@ import { Link } from '../../config/navigation';
 type Props = {
   // parent props:
   brand: string;
+  navModel: {
+    brand: string;
+    leftLinks: Array<Link>;
+    rightLinks: Array<Link>;
+  };
+
   handleLeftNavItemClick: (
     event: React.SyntheticEvent<any>,
     viewName: string,
@@ -26,11 +32,6 @@ type Props = {
     event: React.SyntheticEvent<any>,
     viewName: string,
   ) => any;
-  navModel: {
-    brand: string;
-    leftLinks: Array<Link>;
-    rightLinks: Array<Link>;
-  };
 } & AuthContextProps &
   RouteComponentProps;
 

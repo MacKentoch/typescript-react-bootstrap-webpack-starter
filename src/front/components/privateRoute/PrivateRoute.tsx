@@ -8,8 +8,8 @@ import { AuthContextProps } from '../../contexts/auth/consumerHOC';
 // #region flow types
 type Props = {
   // parent
-  component: any,
-  path: string,
+  component: any;
+  path: string;
 } & RouteComponentProps &
   AuthContextProps;
 
@@ -20,24 +20,22 @@ class PrivateRoute extends Component<Props, State> {
   // #region lifecycle
   render() {
     const { component: InnerComponent, ...rest } = this.props;
-    const { location, isAuthenticated } = this.props;
 
-    const isTokenExpired = false; // this.isExpired();
-
-    return (
-      <Route
-        {...rest}
-        render={props =>
-          !isTokenExpired && isAuthenticated ? (
-            <InnerComponent {...props} />
-          ) : (
-            <Redirect to={{ pathname: '/login', state: { from: location } }} />
-          )
-        }
-      />
-    );
+    return <Route {...rest} render={this.renderScene} />;
   }
   // #endregion
+
+  renderScene = (props: any) => {
+    const { component: InnerComponent, ...rest } = this.props;
+    const { location, isAuthenticated } = this.props;
+    const isTokenExpired = false; // this.isExpired()
+
+    return !isTokenExpired && isAuthenticated ? (
+      <InnerComponent {...props} />
+    ) : (
+      <Redirect to={{ pathname: '/login', state: { from: location } }} />
+    );
+  };
 
   isExpired() {
     const { checkTokenIsExpired } = this.props;
