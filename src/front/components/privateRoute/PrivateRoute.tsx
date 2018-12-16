@@ -6,14 +6,13 @@ import { AuthContextProps } from '../../contexts/auth/consumerHOC';
 // #endregion
 
 // #region flow types
-type Props = {
+interface Props extends RouteComponentProps, AuthContextProps {
   // parent
   component: any;
   path: string;
-} & RouteComponentProps &
-  AuthContextProps;
+}
 
-type State = any;
+interface State {}
 // #endregion
 
 class PrivateRoute extends Component<Props, State> {

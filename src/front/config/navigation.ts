@@ -1,18 +1,18 @@
-export type Link = {
-  label: string,
-  link: string,
-  view?: string,
-  isRouteBtn?: boolean,
-};
+export interface Link {
+  label: string;
+  link: string;
+  view?: string;
+  isRouteBtn?: boolean;
+}
 
-export type Navigation = {
-  brand: string,
-  leftLinks: Array<Link>,
-  rightLinks: Array<Link>,
-};
+export interface Navigation {
+  brand: string;
+  leftLinks?: Array<Link>;
+  rightLinks: Array<Link>;
+}
 // #endregion
 
-const navigation = {
+const navigation: Navigation = {
   brand: 'React Bootstrap Starter',
   leftLinks: [],
   rightLinks: [

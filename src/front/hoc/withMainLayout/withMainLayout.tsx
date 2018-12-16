@@ -13,11 +13,13 @@ import registerServiceWorker from '../../services/sw/registerServiceWorker';
 // #endregion
 
 // #region flow types
-type Props = {} & RouteComponentProps;
+interface Props extends RouteComponentProps {
+  [key: string]: any;
+}
 
-type State = {
+interface State {
   navModel: Navigation;
-};
+}
 // #endregion
 
 // #region withMainLayout HOC

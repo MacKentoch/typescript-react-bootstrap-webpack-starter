@@ -47,16 +47,11 @@ export default class AuthProvider extends React.Component<
 
   render() {
     const { children } = this.props;
+    const value: AuthProviderState = {
+      ...this.state,
+    };
 
-    return (
-      <AuthContextProvider
-        value={{
-          ...this.state,
-        }}
-      >
-        {children}
-      </AuthContextProvider>
-    );
+    return <AuthContextProvider value={value}>{children}</AuthContextProvider>;
   }
   // #endregion
 

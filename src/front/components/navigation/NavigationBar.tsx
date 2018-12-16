@@ -9,13 +9,13 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import { AuthContextProps } from '../../contexts/auth/consumerHOC';
 import { Link } from '../../config/navigation';
 // #endregion
 
 // #region flow types
-type Props = {
+interface Props extends AuthContextProps, RouteComponentProps {
   // parent props:
   brand: string;
   navModel: {
@@ -32,12 +32,11 @@ type Props = {
     event: React.SyntheticEvent<any>,
     viewName: string,
   ) => any;
-} & AuthContextProps &
-  RouteComponentProps;
+}
 
-type State = {
+interface State {
   isOpen: boolean;
-};
+}
 // #endregion
 
 class NavigationBar extends React.PureComponent<Props, State> {
@@ -120,4 +119,4 @@ class NavigationBar extends React.PureComponent<Props, State> {
   // #endregion
 }
 
-export default withRouter(NavigationBar);
+export default NavigationBar;

@@ -3,9 +3,9 @@ import * as React from 'react';
 // #endregion
 
 // #region flow types
-type Props = {
-  color: string,
-};
+interface Props {
+  color: string;
+}
 // #endregion
 
 const UpIcon = ({ color }: Props) => {

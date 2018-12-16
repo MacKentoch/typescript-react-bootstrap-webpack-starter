@@ -6,7 +6,7 @@ import { AuthProviderState } from '../providerComponent';
 // #endregion
 
 // #region flow types
-export type AuthContextProps = {} & AuthProviderState;
+export interface AuthContextProps extends AuthProviderState {}
 // #endregion
 
 // #region CONSUMER HOC
