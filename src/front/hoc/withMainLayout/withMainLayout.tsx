@@ -46,7 +46,6 @@ function withMainLayout(/* no args option yet, but could pass them here */) {
         return (
           <div id="appContainer">
             <NavigationBar
-              brand={navModel.brand}
               navModel={navModel}
               handleLeftNavItemClick={this.handleLeftNavItemClick}
               handleRightNavItemClick={this.handleRightNavItemClick}

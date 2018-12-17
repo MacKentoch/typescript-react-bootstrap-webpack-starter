@@ -1,5 +1,5 @@
 // #region imports
-import * as React from 'react';
+import React from 'react';
 import {
   Collapse,
   Navbar,
@@ -11,28 +11,25 @@ import {
 } from 'reactstrap';
 import { RouteComponentProps } from 'react-router-dom';
 import { AuthContextProps } from '../../contexts/auth/consumerHOC';
-import { Link } from '../../config/navigation';
+import { Navigation } from '../../config/navigation';
 // #endregion
 
 // #region flow types
-interface Props extends AuthContextProps, RouteComponentProps {
+type Props = {
   // parent props:
-  brand: string;
-  navModel: {
-    brand: string;
-    leftLinks: Array<Link>;
-    rightLinks: Array<Link>;
-  };
+  navModel: Navigation;
 
   handleLeftNavItemClick: (
     event: React.SyntheticEvent<any>,
     viewName: string,
   ) => any;
+
   handleRightNavItemClick: (
     event: React.SyntheticEvent<any>,
     viewName: string,
   ) => any;
-}
+} & AuthContextProps &
+  RouteComponentProps;
 
 interface State {
   isOpen: boolean;
@@ -40,9 +37,7 @@ interface State {
 // #endregion
 
 class NavigationBar extends React.PureComponent<Props, State> {
-  static defaultProps = {
-    brand: 'brand',
-  };
+  static defaultProps = {};
 
   state = {
     isOpen: false,
@@ -51,8 +46,7 @@ class NavigationBar extends React.PureComponent<Props, State> {
   // #region lifecycle
   render() {
     const {
-      brand,
-      navModel: { rightLinks },
+      navModel: { rightLinks, brand },
       isAuthenticated,
     } = this.props;
 
