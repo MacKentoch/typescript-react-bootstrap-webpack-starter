@@ -9,27 +9,30 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
-import { RouteComponentProps } from 'react-router-dom';
-import { AuthContextProps } from '../../contexts/auth/consumerHOC';
-import { Navigation } from '../../config/navigation';
+import { InnerProps, OuterProps } from './index';
+// import { RouteComponentProps } from 'react-router-dom';
+// import { AuthContextProps } from '../../contexts/auth/consumerHOC';
+// import { Navigation } from '../../config/navigation';
 // #endregion
 
 // #region flow types
-type Props = {
-  // parent props:
-  navModel: Navigation;
+// type Props = {
+//   // parent props:
+//   navModel: Navigation;
 
-  handleLeftNavItemClick: (
-    event: React.SyntheticEvent<any>,
-    viewName: string,
-  ) => any;
+//   handleLeftNavItemClick: (
+//     event: React.SyntheticEvent<any>,
+//     viewName: string,
+//   ) => any;
 
-  handleRightNavItemClick: (
-    event: React.SyntheticEvent<any>,
-    viewName: string,
-  ) => any;
-} & AuthContextProps &
-  RouteComponentProps;
+//   handleRightNavItemClick: (
+//     event: React.SyntheticEvent<any>,
+//     viewName: string,
+//   ) => any;
+// } & AuthContextProps &
+//   RouteComponentProps;
+
+interface Props extends InnerProps {}
 
 interface State {
   isOpen: boolean;
