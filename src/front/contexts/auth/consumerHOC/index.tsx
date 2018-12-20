@@ -6,13 +6,17 @@ import { AuthProviderState } from '../providerComponent';
 // #endregion
 
 // #region flow types
-export interface AuthContextProps extends AuthProviderState { }
+export interface InjectedProps extends AuthProviderState {}
+
+interface State {}
 // #endregion
 
 // #region CONSUMER HOC
-export default function withAuth<P extends object>(/* additionnal args if needed */) {
-  return (BaseComponent: React.ComponentType<P>) => {
-    class WithAuth extends React.Component<P, any> {
+export default function withAuth<
+  P extends InjectedProps
+>(/* additionnal args if needed */) {
+  return (BaseComponent: ComponentType<P>) => {
+    class WithAuth extends React.Component<P, State> {
       render() {
         const { ...passProps } = this.props;
 
