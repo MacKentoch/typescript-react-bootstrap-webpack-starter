@@ -17,13 +17,19 @@ interface Props extends RouteComponentProps {
   [key: string]: any;
 }
 
+type InjectedProps = {
+  [key: string]: any;
+};
+
 interface State {
   navModel: Navigation;
 }
 // #endregion
 
 // #region withMainLayout HOC
-function withMainLayout(/* no args option yet, but could pass them here */) {
+function withMainLayout<
+  InjectedProps
+>(/* no args option yet, but could pass them here */) {
   return (BaseComponent: any) => {
     // #region returned Component
     class WithMainLayout extends React.Component<Props, State> {

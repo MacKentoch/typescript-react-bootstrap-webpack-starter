@@ -15,13 +15,15 @@ interface State {}
 export default function withAuth<
   P extends InjectedProps
 >(/* additionnal args if needed */) {
-  return (BaseComponent: ComponentType<P>) => {
+  return (BaseComponent: React.ComponentType<P>) => {
     class WithAuth extends React.Component<P, State> {
       render() {
+        // @ts-ignore
         const { ...passProps } = this.props;
 
         return (
           <AuthContextConsumer>
+            // @ts-ignore
             {(fromAuthProps: AuthContextProps) => (
               <BaseComponent {...fromAuthProps} {...passProps} />
             )}
