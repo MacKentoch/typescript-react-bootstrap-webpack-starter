@@ -3,27 +3,31 @@ import * as React from 'react';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 import { AuthContextConsumer } from '../context';
 import { AuthProviderState } from '../providerComponent';
+import { $Subtract } from '../../../types/operators';
 // #endregion
 
 // #region flow types
-export interface InjectedProps extends AuthProviderState {}
+export interface AuthContextProps extends AuthProviderState {}
 
-interface State {}
+export type InjectedProps = {} & AuthProviderState;
+
+type Props = any;
+type State = any;
 // #endregion
 
 // #region CONSUMER HOC
-export default function withAuth<
-  P extends InjectedProps
->(/* additionnal args if needed */) {
-  return (BaseComponent: React.ComponentType<P>) => {
-    class WithAuth extends React.Component<P, State> {
+export default function withAuth<P extends InjectedProps>() {
+  return (
+    BaseComponent: React.ComponentType<P>,
+  ): React.ComponentType<$Subtract<P, InjectedProps>> => {
+    class WithAuth extends React.Component<Props, State> {
       render() {
         // @ts-ignore
         const { ...passProps } = this.props;
 
         return (
           <AuthContextConsumer>
-            // @ts-ignore
+            {/* @ts-ignore */}
             {(fromAuthProps: AuthContextProps) => (
               <BaseComponent {...fromAuthProps} {...passProps} />
             )}

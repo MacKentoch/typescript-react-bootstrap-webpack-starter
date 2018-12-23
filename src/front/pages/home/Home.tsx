@@ -9,8 +9,9 @@ import LightNote from './styled/LightNote';
 // #endregion
 
 // #region flow types
-interface Props extends RouteComponentProps {}
-interface State {}
+type RouteParams = {};
+type Props = any & RouteComponentProps<any>;
+type State = any;
 // #endregion
 
 class Home extends PureComponent<Props, State> {
