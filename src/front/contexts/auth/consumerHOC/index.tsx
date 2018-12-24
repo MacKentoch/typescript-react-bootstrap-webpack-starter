@@ -1,5 +1,5 @@
 // #region imports
-import * as React from 'react';
+import React from 'react';
 import hoistNonReactStatics from 'hoist-non-react-statics';
 import { AuthContextConsumer } from '../context';
 import { AuthProviderState } from '../providerComponent';
@@ -7,9 +7,9 @@ import { $Subtract } from '../../../types/operators';
 // #endregion
 
 // #region flow types
-export interface AuthContextProps extends AuthProviderState {}
+export type AuthContextProps = AuthProviderState;
 
-export type InjectedProps = {} & AuthProviderState;
+export type InjectedProps = AuthProviderState;
 
 type Props = any;
 type State = any;

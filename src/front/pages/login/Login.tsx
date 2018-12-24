@@ -9,16 +9,15 @@ import { appConfig } from '../../config/appConfig';
 import { getLocationOrigin } from '../../services/API/fetchTools';
 import userInfoMock from '../../mock/userInfo.json';
 import { AuthContextProps } from '../../contexts/auth/consumerHOC';
-import { type } from 'os';
 // #endregion
 
 // #region flow types
-type Props = {} & RouteComponentProps & AuthContextProps;
+type Props = any & RouteComponentProps<any> & AuthContextProps;
 
 type State = {
-  email: string,
-  password: string,
-  isLogging: boolean,
+  email: string;
+  password: string;
+  isLogging: boolean;
 };
 // #endregion
 
@@ -127,34 +126,29 @@ class Login extends React.PureComponent<Props, State> {
     disconnectUser();
   };
 
-  handlesOnEmailChange = (event: SyntheticEvent<>) => {
+  handlesOnEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     // should add some validator before setState in real use cases
     this.setState({ email: event.target.value.trim() });
   };
 
-  handlesOnPasswordChange = (event: SyntheticEvent<>) => {
+  handlesOnPasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     // should add some validator before setState in real use cases
     this.setState({ password: event.target.value.trim() });
   };
 
-  handlesOnLogin = async (event: SyntheticEvent<>) => {
+  handlesOnLogin = async (event: React.MouseEvent<HTMLInputElement>) => {
     if (event) {
       event.preventDefault();
     }
 
     const { history, setToken, setUserInfo } = this.props;
-    const { email, password } = this.state;
-
-    const userLogin = {
-      login: email,
-      password: password,
-    };
+    const { email: login, password } = this.state;
 
     try {
       this.setState({ isLogging: true });
-      const response = await this.logUser(userLogin);
+      const response = await this.logUser(login, password);
       const {
         data: { token, user },
       } = response;
@@ -173,7 +167,7 @@ class Login extends React.PureComponent<Props, State> {
     }
   };
 
-  logUser = async (login: string = '', password: string = '') => {
+  logUser = async (login: string = '', password: string = ''): Promise<any> => {
     const __SOME_LOGIN_API__ = 'login';
     const url = `${getLocationOrigin()}/${__SOME_LOGIN_API__}`;
     const method = 'post';
@@ -188,7 +182,7 @@ class Login extends React.PureComponent<Props, State> {
 
     if (appConfig.DEV_MODE) {
       return new Promise(resolve =>
-        setTimeout(resolve({ data: userInfoMock }), 3000),
+        setTimeout(() => resolve({ data: userInfoMock }), 3000),
       );
     }
 

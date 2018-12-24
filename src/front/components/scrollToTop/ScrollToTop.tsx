@@ -4,8 +4,8 @@ import { withRouter, RouteComponentProps } from 'react-router';
 // #endregion
 
 // #region flow types
-interface Props extends RouteComponentProps {
-  children: JSX.Element;
+interface Props extends RouteComponentProps<any> {
+  children: React.ReactNode;
 }
 
 type State = any;

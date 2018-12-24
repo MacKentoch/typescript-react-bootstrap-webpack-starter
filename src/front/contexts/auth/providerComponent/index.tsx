@@ -1,5 +1,5 @@
 // #region imports
-import * as React from 'react';
+import React from 'react';
 import { AuthContextProvider, AuthData, authDefault } from '../context';
 import auth from '../../../services/auth';
 // #endregion
@@ -7,7 +7,7 @@ import auth from '../../../services/auth';
 // #region flow types
 export interface AuthProviderProps {
   initialState: AuthData;
-  children: JSX.Element;
+  children: React.ReactNode;
 }
 
 export interface AuthProviderState extends AuthData {

@@ -14,7 +14,7 @@ export enum ButtonPosition {
 export interface Props {
   position?: ButtonPosition | null;
   onClick: (event: React.SyntheticEvent<any>) => any;
-  children?: JSX.Element;
+  children?: React.ReactNode;
   motionStyle: any;
 }
 // #endregion

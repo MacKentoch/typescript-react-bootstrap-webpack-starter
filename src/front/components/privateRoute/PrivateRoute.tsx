@@ -1,12 +1,12 @@
 // #region imports
 import React, { Component } from 'react';
-import { Route, Redirect, withRouter } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router-dom';
 import { AuthContextProps } from '../../contexts/auth/consumerHOC';
 // #endregion
 
 // #region flow types
-interface Props extends RouteComponentProps, AuthContextProps {
+interface Props extends RouteComponentProps<any>, AuthContextProps {
   // parent
   component: any;
   path: string;
@@ -43,4 +43,4 @@ class PrivateRoute extends Component<Props, State> {
   }
 }
 
-export default withRouter(PrivateRoute);
+export default PrivateRoute;

@@ -5,8 +5,8 @@ import Jumbotron from 'reactstrap/lib/Jumbotron';
 // #endregion
 
 // #region flow types
-interface Props extends RouteComponentProps {}
-interface State {}
+type Props = any & RouteComponentProps<any>;
+type State = any;
 // #endregion
 
 class PageNotFound extends React.PureComponent<Props, State> {
