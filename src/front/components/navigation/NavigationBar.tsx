@@ -84,9 +84,7 @@ class NavigationBar extends React.PureComponent<Props, State> {
 
   // #region navigation bar toggle
   toggle = (evt: React.SyntheticEvent<any>) => {
-    if (evt) {
-      evt.preventDefault();
-    }
+    evt && evt.preventDefault();
     this.setState(({ isOpen: prevIsOpened }) => ({ isOpen: !prevIsOpened }));
   };
   // #endregion
@@ -95,21 +93,16 @@ class NavigationBar extends React.PureComponent<Props, State> {
   handlesNavItemClick = (link: string = '/') => (
     evt: React.SyntheticEvent<any>,
   ) => {
-    if (evt) {
-      evt.preventDefault();
-    }
     const { history } = this.props;
+    evt && evt.preventDefault();
     history.push(link);
   };
   // #endregion
 
   // #region disconnect
   handlesDisconnect = (evt: React.SyntheticEvent<any>) => {
-    if (evt) {
-      evt.preventDefault();
-    }
     const { history, disconnectUser } = this.props;
-
+    evt && evt.preventDefault();
     disconnectUser();
     history.push('/');
   };

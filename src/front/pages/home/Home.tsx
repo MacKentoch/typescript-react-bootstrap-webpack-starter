@@ -9,7 +9,6 @@ import LightNote from './styled/LightNote';
 // #endregion
 
 // #region flow types
-type RouteParams = {};
 type Props = any & RouteComponentProps<any>;
 type State = any;
 // #endregion

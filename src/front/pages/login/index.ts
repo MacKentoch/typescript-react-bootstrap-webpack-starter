@@ -1,5 +1,3 @@
-
-
 // #region imports
 import compose from 'recompose/compose';
 import Login from './Login';
