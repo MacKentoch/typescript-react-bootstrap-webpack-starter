@@ -1,5 +1,5 @@
 // #region imports
-import * as React from 'react';
+import React from 'react';
 import axios from 'axios';
 import { RouteComponentProps } from 'react-router';
 import Button from 'reactstrap/lib/Button';

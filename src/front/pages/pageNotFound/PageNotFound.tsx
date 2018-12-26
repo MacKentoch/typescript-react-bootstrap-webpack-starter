@@ -1,5 +1,5 @@
 // #region lifecycle
-import * as React from 'react';
+import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import Jumbotron from 'reactstrap/lib/Jumbotron';
 // #endregion
