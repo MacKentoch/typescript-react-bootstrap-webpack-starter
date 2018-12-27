@@ -1,5 +1,5 @@
 // #region imports
-import * as React from 'react';
+import React from 'react';
 // #endregion
 
 // #region flow types

@@ -1,5 +1,5 @@
 // #region imports
-import * as React from 'react';
+import React from 'react';
 import { hydrate, render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import smoothScrollPolyfill from 'smoothscroll-polyfill';

@@ -1,5 +1,5 @@
 // #region imports
-import * as React from 'react';
+import React from 'react';
 import wrapDisplayName from 'recompose/wrapDisplayName';
 import AnimatedDiv from './styled/AnimatedDiv';
 // #endregion

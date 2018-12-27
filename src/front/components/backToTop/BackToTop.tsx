@@ -1,7 +1,7 @@
 /* eslint-disable no-undefined */
 
 // #region imports
-import * as React from 'react';
+import React from 'react';
 import { Motion, spring, presets } from 'react-motion';
 import BackToTopButton, {ButtonPosition} from './backToTopButton/BackToTopButton';
 // #endregion
