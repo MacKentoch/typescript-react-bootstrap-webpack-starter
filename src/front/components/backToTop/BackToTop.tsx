@@ -3,7 +3,9 @@
 // #region imports
 import React from 'react';
 import { Motion, spring, presets } from 'react-motion';
-import BackToTopButton, {ButtonPosition} from './backToTopButton/BackToTopButton';
+import BackToTopButton, {
+  ButtonPosition,
+} from './backToTopButton/BackToTopButton';
 // #endregion
 
 // #region flow types
@@ -23,7 +25,9 @@ interface State {
 class BackToTop extends React.Component<Props, State> {
   public static defaultProps = {
     minScrollY: 120,
-    onScrollDone: () => { return; },
+    onScrollDone: () => {
+      return;
+    },
   };
 
   state = {
@@ -48,10 +52,11 @@ class BackToTop extends React.Component<Props, State> {
   render() {
     const { showBackButton } = this.state;
     return (
+      // @ts-ignore
       <Motion style={{ x: spring(showBackButton ? 0 : 120, presets.stiff) }}>
         {({ x }) => (
           <BackToTopButton
-            position={ ButtonPosition['bottom-right'] }
+            position={ButtonPosition['bottom-right']}
             onClick={this.handlesOnBackButtonClick}
             motionStyle={{
               WebkitTransform: `translate3d(${x}px, 0, 0)`,
@@ -72,11 +77,8 @@ class BackToTop extends React.Component<Props, State> {
 
       /* eslint-disable no-undefined */
       const windowPagYOffset = window.pageYOffset;
-      const documentPageYOffset: any = (
-        document.documentElement ||
-        document.body.parentNode ||
-        document.body
-      );
+      const documentPageYOffset: any =
+        document.documentElement || document.body.parentNode || document.body;
       const currentWindowScrollY =
         window.pageYOffset !== undefined
           ? windowPagYOffset
@@ -105,7 +107,9 @@ class BackToTop extends React.Component<Props, State> {
   // #endregion
 
   // #region on button click (smooth scroll)
-  handlesOnBackButtonClick = (event: React.SyntheticEvent) => {
+  handlesOnBackButtonClick = (
+    event: React.SyntheticEvent<HTMLInputElement>,
+  ) => {
     if (event) {
       event.preventDefault();
     }
