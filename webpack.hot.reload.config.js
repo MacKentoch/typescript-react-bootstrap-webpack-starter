@@ -14,7 +14,7 @@ const devServerRootPath = path.join(__dirname, 'docs');
 const publicPath = '/assets/';
 const nodeModulesDir = path.join(__dirname, 'node_modules');
 const srcInclude = path.join(__dirname, 'src/front');
-const indexFile = path.join(__dirname, 'src/front/index.js');
+const indexFile = path.join(__dirname, 'src/front/index.tsx');
 // #endregion
 
 const config = {

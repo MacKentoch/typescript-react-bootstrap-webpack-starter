@@ -5,7 +5,6 @@ import { AppContainer } from 'react-hot-loader';
 import smoothScrollPolyfill from 'smoothscroll-polyfill';
 import { loadComponents, getState } from 'loadable-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import injectGlobalStyle from './style/injectGlobalStyles';
 import Root from './Root';
 // #endregion
 
@@ -20,8 +19,6 @@ smoothScrollPolyfill.polyfill();
 // force polyfill (even if browser partially implements it)
 (window as any).__forceSmoothScrollPolyfill__ = true;
 (window as any).snapSaveState = () => getState();
-
-injectGlobalStyle();
 // #endregion
 
 // #region render (with hot reload if dev)

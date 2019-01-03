@@ -32,7 +32,7 @@ class Root extends React.Component<Props, State> {
   render() {
     return (
       <Router history={history}>
-        <Fragment>
+        <div>
           <GlobalStyle />
           <AuthProvider>
             <ScrollToTop>
@@ -46,7 +46,7 @@ class Root extends React.Component<Props, State> {
               </Switch>
             </ScrollToTop>
           </AuthProvider>
-        </Fragment>
+        </div>
       </Router>
     );
   }
