@@ -1,4 +1,4 @@
-
+// @flow
 
 // #region singleton store
 let store = {};
@@ -13,15 +13,15 @@ class SessionStorageMock {
     store = {};
   }
 
-  getItem(key: string) {
+  getItem(key) {
     return store[key] || null;
   }
 
-  setItem(key: string, value: string) {
+  setItem(key, value) {
     store[key] = value;
   }
 
-  removeItem(key: string) {
+  removeItem(key) {
     delete store[key];
   }
 }
