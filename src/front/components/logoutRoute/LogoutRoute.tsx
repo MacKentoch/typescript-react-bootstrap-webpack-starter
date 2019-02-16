@@ -1,5 +1,5 @@
 // #region imports
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Route,
   Redirect,
@@ -11,25 +11,21 @@ import { AuthContextProps } from '../../contexts/auth/consumerHOC';
 
 // #region flow types
 interface Props extends RouteComponentProps, AuthContextProps {}
-
-interface State {}
 // #endregion
 
-class LogoutRoute extends React.PureComponent<Props, State> {
-  // #region lifecycle
-  componentDidMount() {
-    const { disconnectUser } = this.props;
+function LogoutRoute(props: Props) {
+  const { disconnectUser } = props;
+  useEffect(() => {
     disconnectUser();
-  }
+  });
 
-  render() {
-    return (
-      <Route {...this.props}>
-        <Redirect to={{ pathname: '/login' }} />
-      </Route>
-    );
-  }
-  // #endregion
+  return (
+    <Route {...props}>
+      <Redirect to={{ pathname: '/login' }} />
+    </Route>
+  );
 }
+
+LogoutRoute.displayName = 'LogoutRoute';
 
 export default withRouter(LogoutRoute);
