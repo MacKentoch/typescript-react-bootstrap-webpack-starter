@@ -1,5 +1,5 @@
 // #region imports
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Collapse,
   Navbar,
@@ -9,104 +9,75 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
-import { InnerProps, OuterProps } from './index';
-// import { RouteComponentProps } from 'react-router-dom';
-// import { AuthContextProps } from '../../contexts/auth/consumerHOC';
-// import { Navigation } from '../../config/navigation';
-// #endregion
+import { RouteComponentProps } from 'react-router';
 
-// #region flow types
-// type Props = {
-//   // parent props:
-//   navModel: Navigation;
-
-//   handleLeftNavItemClick: (
-//     event: React.SyntheticEvent<any>,
-//     viewName: string,
-//   ) => any;
-
-//   handleRightNavItemClick: (
-//     event: React.SyntheticEvent<any>,
-//     viewName: string,
-//   ) => any;
-// } & AuthContextProps &
-//   RouteComponentProps;
-
-interface Props extends InnerProps {}
-
-interface State {
-  isOpen: boolean;
+interface Props extends RouteComponentProps<any> {
+  navModel: { rightLinks: string[]; brand: string };
+  isAuthenticated: boolean;
+  disconnectUser: () => any;
 }
 // #endregion
 
-class NavigationBar extends React.PureComponent<Props, State> {
-  static defaultProps = {};
-
-  state = {
-    isOpen: false,
-  };
-
-  // #region lifecycle
-  render() {
-    const {
-      navModel: { rightLinks, brand },
-      isAuthenticated,
-    } = this.props;
-
-    const { isOpen } = this.state;
-
-    return (
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">{brand}</NavbarBrand>
-        <NavbarToggler onClick={this.toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="ml-auto" navbar>
-            {rightLinks.map(({ label, link }, index) => (
-              <NavItem key={`${index}`}>
-                <NavLink href="#" onClick={this.handlesNavItemClick(link)}>
-                  {label}
-                </NavLink>
-              </NavItem>
-            ))}
-            {isAuthenticated && (
-              <NavItem>
-                <NavLink href="#" onClick={this.handlesDisconnect}>
-                  Disconnect
-                </NavLink>
-              </NavItem>
-            )}
-          </Nav>
-        </Collapse>
-      </Navbar>
-    );
-  }
+function NavigationBar({
+  navModel: { rightLinks, brand },
+  isAuthenticated,
+  disconnectUser,
+  history,
+}: Props) {
+  // #region state
+  const [isOpen, setIsOpen] = useState(false);
   // #endregion
 
   // #region navigation bar toggle
-  toggle = (evt: React.SyntheticEvent<any>) => {
+  const toggle = (evt: React.SyntheticEvent<any>) => {
     evt && evt.preventDefault();
-    this.setState(({ isOpen: prevIsOpened }) => ({ isOpen: !prevIsOpened }));
+    setIsOpen(!isOpen);
   };
   // #endregion
 
   // #region handlesNavItemClick event
-  handlesNavItemClick = (link: string = '/') => (
+  const handlesNavItemClick = (link: string = '/') => (
     evt: React.SyntheticEvent<any>,
   ) => {
-    const { history } = this.props;
     evt && evt.preventDefault();
     history.push(link);
   };
   // #endregion
 
   // #region disconnect
-  handlesDisconnect = (evt: React.SyntheticEvent<any>) => {
-    const { history, disconnectUser } = this.props;
+  const handlesDisconnect = (evt: React.SyntheticEvent<any>) => {
     evt && evt.preventDefault();
     disconnectUser();
     history.push('/');
   };
   // #endregion
+
+  return (
+    <Navbar color="light" light expand="md">
+      <NavbarBrand href="/">{brand}</NavbarBrand>
+      <NavbarToggler onClick={this.toggle} />
+      <Collapse isOpen={isOpen} navbar>
+        <Nav className="ml-auto" navbar>
+          {rightLinks.map(({ label, link }, index) => (
+            <NavItem key={`${index}`}>
+              <NavLink href="#" onClick={this.handlesNavItemClick(link)}>
+                {label}
+              </NavLink>
+            </NavItem>
+          ))}
+          {isAuthenticated && (
+            <NavItem>
+              <NavLink href="#" onClick={this.handlesDisconnect}>
+                Disconnect
+              </NavLink>
+            </NavItem>
+          )}
+        </Nav>
+      </Collapse>
+    </Navbar>
+  );
 }
+
+NavigationBar.displayName = 'NavigationBar';
 
 export default NavigationBar;
