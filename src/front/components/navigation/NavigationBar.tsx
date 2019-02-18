@@ -11,8 +11,13 @@ import {
 } from 'reactstrap';
 import { RouteComponentProps } from 'react-router';
 
+type NavModel = {
+  link: string,
+  label: string,
+}
+
 interface Props extends RouteComponentProps<any> {
-  navModel: { rightLinks: string[]; brand: string };
+  navModel: { rightLinks: Array<NavModel>; brand: string };
   isAuthenticated: boolean;
   disconnectUser: () => any;
 }
@@ -55,19 +60,19 @@ function NavigationBar({
   return (
     <Navbar color="light" light expand="md">
       <NavbarBrand href="/">{brand}</NavbarBrand>
-      <NavbarToggler onClick={this.toggle} />
+      <NavbarToggler onClick={toggle} />
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
           {rightLinks.map(({ label, link }, index) => (
             <NavItem key={`${index}`}>
-              <NavLink href="#" onClick={this.handlesNavItemClick(link)}>
+              <NavLink href="#" onClick={handlesNavItemClick(link)}>
                 {label}
               </NavLink>
             </NavItem>
           ))}
           {isAuthenticated && (
             <NavItem>
-              <NavLink href="#" onClick={this.handlesDisconnect}>
+              <NavLink href="#" onClick={handlesDisconnect}>
                 Disconnect
               </NavLink>
             </NavItem>
