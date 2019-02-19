@@ -15,32 +15,29 @@ interface Props extends RouteComponentProps<any>, AuthContextProps {
 interface State {}
 // #endregion
 
-class PrivateRoute extends Component<Props, State> {
-  // #region lifecycle
-  render() {
-    const { component: InnerComponent, ...rest } = this.props;
+function PrivateRoute(props: Props) {
+  const { component: InnerComponent, ...rest } = props;
 
-    return <Route {...rest} render={this.renderScene} />;
-  }
-  // #endregion
+  const isExpired = () => {
+    const { checkTokenIsExpired } = props;
+    const isExpired = checkTokenIsExpired();
+    return isExpired;
+  };
 
-  renderScene = (props: any) => {
-    const { component: InnerComponent, ...rest } = this.props;
-    const { location, isAuthenticated } = this.props;
+  const renderScene = (sceneProps: any) => {
+    const { location, isAuthenticated } = sceneProps;
     const isTokenExpired = false; // this.isExpired()
 
     return !isTokenExpired && isAuthenticated ? (
-      <InnerComponent {...props} />
+      <InnerComponent {...sceneProps} />
     ) : (
       <Redirect to={{ pathname: '/login', state: { from: location } }} />
     );
   };
 
-  isExpired() {
-    const { checkTokenIsExpired } = this.props;
-    const isExpired = checkTokenIsExpired();
-    return isExpired;
-  }
+  return <Route {...rest} render={renderScene} />;
 }
+
+PrivateRoute.displayName = 'PrivateRoute';
 
 export default PrivateRoute;
