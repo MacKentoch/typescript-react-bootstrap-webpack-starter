@@ -1,8 +1,4 @@
-
-
-// #region imports
 import auth from '../index';
-// #endregion
 
 describe('auth service', () => {
   it('localStorage should exist', () => {

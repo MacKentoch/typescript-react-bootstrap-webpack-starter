@@ -1,7 +1,7 @@
 // #region imports
 import React from 'react';
-import wrapDisplayName from 'recompose/wrapDisplayName';
 import AnimatedDiv from './styled/AnimatedDiv';
+import { getDisplayName } from '../utils/index';
 // #endregion
 
 // #region flow types
@@ -13,13 +13,13 @@ type State = any;
 function withEnterAnimation() {
   return (BaseComponent: any) => {
     class WithEnterAnimation extends React.Component<Props, State> {
-      static displayName = wrapDisplayName(BaseComponent, 'withEnterAnimation');
+      static displayName = `withEnterAnimation${getDisplayName(BaseComponent)}`;
 
       render() {
         const { ...passProps } = this.props;
 
         return (
-          <AnimatedDiv viewEnter={true}>
+          <AnimatedDiv viewEnter>
             <BaseComponent {...passProps} />
           </AnimatedDiv>
         );

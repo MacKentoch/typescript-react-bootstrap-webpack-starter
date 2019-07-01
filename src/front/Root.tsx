@@ -1,24 +1,19 @@
-// #region imports
 import * as React from 'react';
 import { Fragment } from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
-import { compose } from 'recompose';
+import { compose } from 'redux';
 import loadable from 'loadable-components';
-// #region import createHistory from hashHistory or BrowserHistory:
-// import createHistory from 'history/createHashHistory';
 import createHistory from 'history/createBrowserHistory';
-// #endregion
 import withMainLayout from './hoc/withMainLayout';
 import MainRoutes from './routes/MainRoutes';
 import LogoutRoute from './components/logoutRoute';
 import AuthProvider from './contexts/auth/providerComponent';
 import GlobalStyle from './style/GlobalStyles';
-// #endregion
 
-// #region flow types
+// #region types
 type Props = any;
 type State = any;
-// #endregion
+// #nedregion
 
 // #region constants
 const MainApp = compose(withMainLayout())(MainRoutes);

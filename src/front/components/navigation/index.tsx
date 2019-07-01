@@ -1,9 +1,8 @@
 // #region imports
-import compose from 'recompose/compose';
+import { compose } from 'redux';
 import withAuth from '../../contexts/auth/consumerHOC';
-import { withRouter } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import NavigationBar from './NavigationBar';
-import { RouteComponentProps } from 'react-router-dom';
 import { AuthContextProps } from '../../contexts/auth/consumerHOC';
 import { Navigation } from '../../config/navigation';
 // #endregion

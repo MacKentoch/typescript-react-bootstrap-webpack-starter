@@ -1,5 +1,5 @@
 // #region imports
-import compose from 'recompose/compose';
+import { compose } from 'redux';
 import Login from './Login';
 import withEnterAnimation from '../../hoc/withEnterAnimation';
 import withAuth from '../../contexts/auth/consumerHOC';

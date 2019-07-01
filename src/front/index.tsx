@@ -1,4 +1,3 @@
-// #region imports
 import React from 'react';
 import { hydrate, render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
@@ -6,7 +5,6 @@ import smoothScrollPolyfill from 'smoothscroll-polyfill';
 import { loadComponents, getState } from 'loadable-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Root from './Root';
-// #endregion
 
 // #region constants
 const ELEMENT_TO_BOOTSTRAP = 'root';

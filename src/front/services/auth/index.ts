@@ -1,6 +1,6 @@
 // #region imports
 import decode from 'jwt-decode';
-import isAfter from 'date-fns/is_after';
+import { isAfter } from 'date-fns';
 // #endregion
 
 // #region flow types
@@ -19,8 +19,8 @@ const APP_PERSIST_STORES_TYPES: Array<STORES_TYPES> = [
   'sessionStorage',
 ];
 
-const parse = JSON.parse;
-const stringify = JSON.stringify;
+const { parse } = JSON;
+const { stringify } = JSON;
 // #endregion
 
 /*
@@ -119,17 +119,15 @@ export const auth = {
     if (fromStorage === APP_PERSIST_STORES_TYPES[0]) {
       if (localStorage && localStorage.getItem(tokenKey)) {
         return true;
-      } else {
-        return false;
       }
+      return false;
     }
     // sessionStorage:
     if (fromStorage === APP_PERSIST_STORES_TYPES[1]) {
       if (sessionStorage && sessionStorage.getItem(tokenKey)) {
         return true;
-      } else {
-        return false;
       }
+      return false;
     }
     // default:
     return false;

@@ -1,26 +1,21 @@
-// #region lifecycle
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
 import Jumbotron from 'reactstrap/lib/Jumbotron';
+
+// #region types
+type Props = any & RouteComponentProps;
 // #endregion
 
-// #region flow types
-type Props = any & RouteComponentProps<any>;
-type State = any;
-// #endregion
-
-class PageNotFound extends React.PureComponent<Props, State> {
-  // #region lifecycle
-  render() {
-    return (
-      <div>
-        <Jumbotron>
-          <h1>Sorry this page does not exists...</h1>
-        </Jumbotron>
-      </div>
-    );
-  }
-  // #endregion
+function PageNotFound({  }: Props) {
+  return (
+    <div>
+      <Jumbotron>
+        <h1>Sorry this page does not exists...</h1>
+      </Jumbotron>
+    </div>
+  );
 }
+
+PageNotFound.displayName = 'PageNotFound';
 
 export default PageNotFound;

@@ -1,7 +1,7 @@
 // #region imports
-import compose from 'recompose/compose';
-import PrivateRoute from './PrivateRoute';
+import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
 import withAuth from '../../contexts/auth/consumerHOC';
 // #endregion
 

@@ -1,19 +1,16 @@
-// @flow
-
-// #region imports
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// #endregion
 
 // #region constants
 const outputPath = path.join(__dirname, 'docs/assets');
 const devServerRootPath = path.join(__dirname, 'docs');
 const publicPath = '/assets/';
 const nodeModulesDir = path.join(__dirname, 'node_modules');
-const srcInclude = path.join(__dirname, 'src/front');
 const indexFile = path.join(__dirname, 'src/front/index.tsx');
 // #endregion
 

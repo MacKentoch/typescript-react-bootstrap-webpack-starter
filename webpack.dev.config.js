@@ -1,13 +1,11 @@
-// @flow
-
-// #region imports
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const workboxPlugin = require('workbox-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModernizrWebpackPlugin = require('modernizr-webpack-plugin');
-// #endregion
 
 // #region constants
 const outputPath = path.join(__dirname, 'docs/assets');
@@ -16,7 +14,7 @@ const nodeModulesDir = path.join(__dirname, 'node_modules');
 const indexFile = path.join(__dirname, 'src/front/index.tsx');
 // #endregion
 
-const config = {
+const clientConfig = {
   mode: 'development',
   devtool: 'source-map',
   target: 'web',
@@ -102,4 +100,31 @@ const config = {
   ],
 };
 
-module.exports = config;
+const serverConfig = {
+  mode: 'development',
+  devtool: 'source-map',
+  target: 'node',
+  entry: './src/server/server.ts',
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
+  output: {
+    filename: 'server.js',
+    path: path.resolve(__dirname, 'docs'),
+  },
+  node: {
+    __dirname: false,
+    __filename: false,
+  },
+};
+
+module.exports = [clientConfig, serverConfig];

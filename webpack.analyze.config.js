@@ -1,6 +1,5 @@
-// @flow
-
-// #region imports
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable import/no-extraneous-dependencies */
 const webpack = require('webpack');
 const path = require('path');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
@@ -10,9 +9,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModernizrWebpackPlugin = require('modernizr-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
-// #endregion
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 // #region constants
 const outputPath = path.join(__dirname, 'docs/public/assets');
@@ -21,7 +18,7 @@ const nodeModulesDir = path.join(__dirname, 'node_modules');
 const indexFile = path.join(__dirname, 'src/front/index.tsx');
 // #endregion
 
-const config = {
+const clientConfig = {
   mode: 'production',
   entry: { app: indexFile },
   resolve: {
@@ -123,4 +120,4 @@ const config = {
   ],
 };
 
-module.exports = config;
+module.exports = [clientConfig];
