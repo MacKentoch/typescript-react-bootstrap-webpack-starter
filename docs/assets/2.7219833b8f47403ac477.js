@@ -130,7 +130,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mock_userInfo_json__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../mock/userInfo.json */ "./src/front/mock/userInfo.json");
 var _mock_userInfo_json__WEBPACK_IMPORTED_MODULE_8___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../../mock/userInfo.json */ "./src/front/mock/userInfo.json", 1);
 
-// #region imports
 
 
 
@@ -140,144 +139,128 @@ var _mock_userInfo_json__WEBPACK_IMPORTED_MODULE_8___namespace = /*#__PURE__*/__
 
 
 // #endregion
-var Login = /** @class */ (function (_super) {
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](Login, _super);
-    function Login() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = {
-            email: '',
-            password: '',
-            isLogging: false,
-        };
-        // #endregion
-        _this.disconnectUser = function () {
-            var disconnectUser = _this.props.disconnectUser;
-            disconnectUser();
-        };
-        _this.handlesOnEmailChange = function (event) {
-            event.preventDefault();
-            // should add some validator before setState in real use cases
-            _this.setState({ email: event.target.value.trim() });
-        };
-        _this.handlesOnPasswordChange = function (event) {
-            event.preventDefault();
-            // should add some validator before setState in real use cases
-            _this.setState({ password: event.target.value.trim() });
-        };
-        _this.handlesOnLogin = function (event) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
-            var _a, history, setToken, setUserInfo, _b, login, password, response, _c, token, user, error_1;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_d) {
-                switch (_d.label) {
-                    case 0:
-                        if (event) {
-                            event.preventDefault();
-                        }
-                        _a = this.props, history = _a.history, setToken = _a.setToken, setUserInfo = _a.setUserInfo;
-                        _b = this.state, login = _b.email, password = _b.password;
-                        _d.label = 1;
-                    case 1:
-                        _d.trys.push([1, 3, , 4]);
-                        this.setState({ isLogging: true });
-                        return [4 /*yield*/, this.logUser(login, password)];
-                    case 2:
-                        response = _d.sent();
-                        _c = response.data, token = _c.token, user = _c.user;
-                        setToken(token);
-                        setUserInfo(user);
-                        this.setState({ isLogging: false });
-                        history.push({ pathname: '/' }); // back to Home
-                        return [3 /*break*/, 4];
-                    case 3:
-                        error_1 = _d.sent();
-                        this.setState({ isLogging: false });
-                        /* eslint-disable no-console */
-                        console.log('login went wrong..., error: ', error_1);
-                        return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/];
-                }
-            });
-        }); };
-        _this.logUser = function (login, password) {
-            if (login === void 0) { login = ''; }
-            if (password === void 0) { password = ''; }
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
-                var __SOME_LOGIN_API__, url, method, headers, options, response, error_2;
-                return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            __SOME_LOGIN_API__ = 'login';
-                            url = Object(_services_API_fetchTools__WEBPACK_IMPORTED_MODULE_7__["getLocationOrigin"])() + "/" + __SOME_LOGIN_API__;
-                            method = 'post';
-                            headers = {};
-                            options = {
-                                credentials: 'same-origin',
-                                data: {
-                                    login: login,
-                                    password: password,
-                                },
-                            };
-                            if (_config_appConfig__WEBPACK_IMPORTED_MODULE_6__["appConfig"].DEV_MODE) {
-                                return [2 /*return*/, new Promise(function (resolve) {
-                                        return setTimeout(function () { return resolve({ data: _mock_userInfo_json__WEBPACK_IMPORTED_MODULE_8__ }); }, 3000);
-                                    })];
-                            }
-                            _a.label = 1;
-                        case 1:
-                            _a.trys.push([1, 3, , 4]);
-                            return [4 /*yield*/, axios__WEBPACK_IMPORTED_MODULE_2___default.a.request(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ method: method,
-                                    url: url, withCredentials: true, headers: tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ Accept: 'application/json', 'Content-Type': 'application/json', 'Acces-Control-Allow-Origin': '*' }, headers) }, options))];
-                        case 2:
-                            response = _a.sent();
-                            return [2 /*return*/, Promise.resolve(response)];
-                        case 3:
-                            error_2 = _a.sent();
-                            return [2 /*return*/, Promise.reject(error_2)];
-                        case 4: return [2 /*return*/];
+// #region constants
+function logUser(login, password) {
+    if (login === void 0) { login = ''; }
+    if (password === void 0) { password = ''; }
+    return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
+        var __SOME_LOGIN_API__, url, method, headers, options, response, error_1;
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    __SOME_LOGIN_API__ = 'login';
+                    url = Object(_services_API_fetchTools__WEBPACK_IMPORTED_MODULE_7__["getLocationOrigin"])() + "/" + __SOME_LOGIN_API__;
+                    method = 'post';
+                    headers = {};
+                    options = {
+                        credentials: 'same-origin',
+                        data: {
+                            login: login,
+                            password: password,
+                        },
+                    };
+                    if (_config_appConfig__WEBPACK_IMPORTED_MODULE_6__["appConfig"].DEV_MODE) {
+                        return [2 /*return*/, new Promise(function (resolve) {
+                                return setTimeout(function () { return resolve({ data: _mock_userInfo_json__WEBPACK_IMPORTED_MODULE_8__ }); }, 3000);
+                            })];
                     }
-                });
-            });
-        };
-        _this.goHome = function (event) {
-            if (event) {
-                event.preventDefault();
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, axios__WEBPACK_IMPORTED_MODULE_2___default.a.request(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ method: method,
+                            url: url, withCredentials: true, headers: tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"]({ Accept: 'application/json', 'Content-Type': 'application/json', 'Acces-Control-Allow-Origin': '*' }, headers) }, options))];
+                case 2:
+                    response = _a.sent();
+                    return [2 /*return*/, response && response.data];
+                case 3:
+                    error_1 = _a.sent();
+                    throw error_1;
+                case 4: return [2 /*return*/];
             }
-            var history = _this.props.history;
-            history.push({ pathname: '/' });
-        };
-        return _this;
-    }
-    // #region lifecycle
-    Login.prototype.componentDidMount = function () {
-        this.disconnectUser(); // diconnect user: remove token and user info
-    };
-    Login.prototype.render = function () {
-        var _a = this.state, email = _a.email, password = _a.password, isLogging = _a.isLogging;
-        return (react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", { className: "content" },
-            react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Row__WEBPACK_IMPORTED_MODULE_4___default.a, null,
-                react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Col__WEBPACK_IMPORTED_MODULE_5___default.a, { md: { size: 4, offset: 4 }, xs: { size: 10, offset: 1 } },
-                    react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", { className: "form-horizontal", noValidate: true },
-                        react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", null,
-                            react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("legend", null, "Login"),
-                            react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", { className: "form-group" },
-                                react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", { htmlFor: "inputEmail", className: "col-lg-2 control-label" }, "Email"),
-                                react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Col__WEBPACK_IMPORTED_MODULE_5___default.a, { lg: 12 },
-                                    react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", { type: "text", className: "form-control", id: "inputEmail", placeholder: "Email", autoComplete: "username email", value: email, onChange: this.handlesOnEmailChange }))),
-                            react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", { className: "form-group" },
-                                react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", { htmlFor: "inputPassword", className: "col-lg-2 control-label" }, "Password"),
-                                react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Col__WEBPACK_IMPORTED_MODULE_5___default.a, { lg: 12 },
-                                    react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", { type: "password", className: "form-control", id: "inputPassword", placeholder: "Password", autoComplete: "current-password", value: password, onChange: this.handlesOnPasswordChange }))),
-                            react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", { className: "form-group" },
-                                react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Col__WEBPACK_IMPORTED_MODULE_5___default.a, { lg: { size: 12 } },
-                                    react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Button__WEBPACK_IMPORTED_MODULE_3___default.a, { className: "login-button btn-block", color: "primary", disabled: isLogging, onClick: this.handlesOnLogin }, isLogging ? (react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null,
-                                        "login in... \u00A0",
-                                        react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", { className: "fa fa-spinner fa-pulse fa-fw" }))) : (react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Login"))))))))),
-            react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Row__WEBPACK_IMPORTED_MODULE_4___default.a, null,
-                react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Col__WEBPACK_IMPORTED_MODULE_5___default.a, { md: { size: 4, offset: 4 }, xs: { size: 10, offset: 1 } },
-                    react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", { className: "pull-right" },
-                        react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Button__WEBPACK_IMPORTED_MODULE_3___default.a, { className: "btn-block", onClick: this.goHome }, "back to home"))))));
-    };
-    return Login;
-}(react__WEBPACK_IMPORTED_MODULE_1___default.a.PureComponent));
+        });
+    });
+}
+// #endregion
+function Login(_a) {
+    var _this = this;
+    var history = _a.history, disconnectUser = _a.disconnectUser, setToken = _a.setToken, setUserInfo = _a.setUserInfo;
+    var _b = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''), email = _b[0], setEmail = _b[1];
+    var _c = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(''), password = _c[0], setPassword = _c[1];
+    var _d = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(false), isLogging = _d[0], setIsLogging = _d[1];
+    // #region on mount
+    Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+        disconnectUser(); // diconnect user: remove token and user info
+    }, []);
+    // #endregion
+    // #region callbacks
+    var handlesOnEmailChange = Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])(function (event) {
+        event && event.preventDefault();
+        setEmail((event && event.target.value.trim()) || '');
+    }, []);
+    var handlesOnPasswordChange = Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])(function (event) {
+        event && event.preventDefault();
+        setPassword((event && event.target.value.trim()) || '');
+    }, []);
+    var handlesOnLogin = Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])(function (event) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
+        var response, _a, token, user, error_2;
+        return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_b) {
+            switch (_b.label) {
+                case 0:
+                    event && event.preventDefault();
+                    _b.label = 1;
+                case 1:
+                    _b.trys.push([1, 3, , 4]);
+                    setIsLogging(true);
+                    return [4 /*yield*/, logUser(email, password)];
+                case 2:
+                    response = _b.sent();
+                    _a = response.data, token = _a.token, user = _a.user;
+                    setToken(token);
+                    setUserInfo(user);
+                    setIsLogging(false);
+                    history.push({ pathname: '/' }); // back to Home
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_2 = _b.sent();
+                    setIsLogging(false);
+                    /* eslint-disable no-console */
+                    console.log('login went wrong..., error: ', error_2);
+                    /* eslint-enable no-console */
+                    throw error_2;
+                case 4: return [2 /*return*/];
+            }
+        });
+    }); }, [email, password]);
+    var goHome = Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])(function (event) {
+        event && event.preventDefault();
+        history.push({ pathname: '/' });
+    }, []);
+    // #endregion
+    return (react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", { className: "content" },
+        react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Row__WEBPACK_IMPORTED_MODULE_4___default.a, null,
+            react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Col__WEBPACK_IMPORTED_MODULE_5___default.a, { md: { size: 4, offset: 4 }, xs: { size: 10, offset: 1 } },
+                react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", { className: "form-horizontal", noValidate: true },
+                    react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("fieldset", null,
+                        react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("legend", null, "Login"),
+                        react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", { className: "form-group" },
+                            react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", { htmlFor: "inputEmail", className: "col-lg-2 control-label" }, "Email"),
+                            react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Col__WEBPACK_IMPORTED_MODULE_5___default.a, { lg: 12 },
+                                react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", { type: "text", className: "form-control", id: "inputEmail", placeholder: "Email", autoComplete: "username email", value: email, onChange: handlesOnEmailChange }))),
+                        react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", { className: "form-group" },
+                            react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", { htmlFor: "inputPassword", className: "col-lg-2 control-label" }, "Password"),
+                            react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Col__WEBPACK_IMPORTED_MODULE_5___default.a, { lg: 12 },
+                                react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", { type: "password", className: "form-control", id: "inputPassword", placeholder: "Password", autoComplete: "current-password", value: password, onChange: handlesOnPasswordChange }))),
+                        react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", { className: "form-group" },
+                            react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Col__WEBPACK_IMPORTED_MODULE_5___default.a, { lg: { size: 12 } },
+                                react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Button__WEBPACK_IMPORTED_MODULE_3___default.a, { className: "login-button btn-block", color: "primary", disabled: isLogging, onClick: handlesOnLogin }, isLogging ? (react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null,
+                                    "login in... \u00A0",
+                                    react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("i", { className: "fa fa-spinner fa-pulse fa-fw" }))) : (react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "Login"))))))))),
+        react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Row__WEBPACK_IMPORTED_MODULE_4___default.a, null,
+            react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Col__WEBPACK_IMPORTED_MODULE_5___default.a, { md: { size: 4, offset: 4 }, xs: { size: 10, offset: 1 } },
+                react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", { className: "pull-right" },
+                    react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(reactstrap_lib_Button__WEBPACK_IMPORTED_MODULE_3___default.a, { className: "btn-block", onClick: goHome }, "back to home"))))));
+}
+Login.displayName = 'Login';
 /* harmony default export */ __webpack_exports__["default"] = (Login);
 
 
@@ -293,16 +276,16 @@ var Login = /** @class */ (function (_super) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Login */ "./src/front/pages/login/Login.tsx");
-/* harmony import */ var _hoc_withEnterAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hoc/withEnterAnimation */ "./src/front/hoc/withEnterAnimation/index.ts");
-/* harmony import */ var _contexts_auth_consumerHOC__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../contexts/auth/consumerHOC */ "./src/front/contexts/auth/consumerHOC/index.tsx");
+/* harmony import */ var _hoc_withEnterAnimation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hoc/withEnterAnimation */ "./src/front/hoc/withEnterAnimation/index.ts");
+/* harmony import */ var _contexts_auth_consumerHOC__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../contexts/auth/consumerHOC */ "./src/front/contexts/auth/consumerHOC/index.tsx");
+/* harmony import */ var _Login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Login */ "./src/front/pages/login/Login.tsx");
 // #region imports
 
 
 
 
 // #endregion
-/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["compose"])(Object(_hoc_withEnterAnimation__WEBPACK_IMPORTED_MODULE_2__["default"])( /* no option yet */), Object(_contexts_auth_consumerHOC__WEBPACK_IMPORTED_MODULE_3__["default"])())(_Login__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["compose"])(Object(_hoc_withEnterAnimation__WEBPACK_IMPORTED_MODULE_1__["default"])( /* no option yet */), Object(_contexts_auth_consumerHOC__WEBPACK_IMPORTED_MODULE_2__["default"])())(_Login__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 
 /***/ }),
@@ -363,4 +346,4 @@ var encodeBase64 = function (stringToEncode) {
 /***/ })
 
 }]);
-//# sourceMappingURL=2.9261c024a326760f2aac.js.map
+//# sourceMappingURL=2.7219833b8f47403ac477.js.map

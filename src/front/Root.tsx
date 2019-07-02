@@ -7,7 +7,7 @@ import createHistory from 'history/createBrowserHistory';
 import withMainLayout from './hoc/withMainLayout';
 import MainRoutes from './routes/MainRoutes';
 import LogoutRoute from './components/logoutRoute';
-import AuthProvider from './contexts/auth/providerComponent';
+import AuthContextProvider from './contexts/auth'
 import GlobalStyle from './style/GlobalStyles';
 
 // #region types
@@ -29,8 +29,8 @@ class Root extends React.Component<Props, State> {
       <Router history={history}>
         <Fragment>
           <GlobalStyle />
-          <AuthProvider>
-            <ScrollToTop>
+          <AuthContextProvider>
+            {/* <ScrollToTop> */}
               <Switch>
                 <Route exact path="/login" component={LoadableLogin} />
                 {/* Application with main layout (could have multiple applications with different layouts) */}
@@ -39,8 +39,8 @@ class Root extends React.Component<Props, State> {
                 <LogoutRoute path="/logout" />
                 <Route component={LoadablePageNotFound} />
               </Switch>
-            </ScrollToTop>
-          </AuthProvider>
+            {/* </ScrollToTop> */}
+          </AuthContextProvider>
         </Fragment>
       </Router>
     );

@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[4],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],{
 
 /***/ "./src/front/hoc/withEnterAnimation/index.ts":
 /*!***************************************************!*\
@@ -94,61 +94,52 @@ function withEnterAnimation() {
 
 /***/ }),
 
-/***/ "./src/front/pages/protected/Protected.tsx":
-/*!*************************************************!*\
-  !*** ./src/front/pages/protected/Protected.tsx ***!
-  \*************************************************/
+/***/ "./src/front/pages/pageNotFound/PageNotFound.tsx":
+/*!*******************************************************!*\
+  !*** ./src/front/pages/pageNotFound/PageNotFound.tsx ***!
+  \*******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var reactstrap_lib_Jumbotron__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! reactstrap/lib/Jumbotron */ "./node_modules/reactstrap/lib/Jumbotron.js");
+/* harmony import */ var reactstrap_lib_Jumbotron__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(reactstrap_lib_Jumbotron__WEBPACK_IMPORTED_MODULE_1__);
 
-// #region imports
 
 // #endregion
-var Protected = /** @class */ (function (_super) {
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"](Protected, _super);
-    function Protected() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    // #region lifecycle
-    Protected.prototype.render = function () {
-        return (react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null,
-            react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "Protected view"),
-            react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h3", null, "If you can read, it means you are authenticated")));
-    };
-    return Protected;
-}(react__WEBPACK_IMPORTED_MODULE_1___default.a.PureComponent));
-/* harmony default export */ __webpack_exports__["default"] = (Protected);
+function PageNotFound(_a) {
+    return (react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactstrap_lib_Jumbotron__WEBPACK_IMPORTED_MODULE_1___default.a, null,
+            react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Sorry this page does not exists..."))));
+}
+PageNotFound.displayName = 'PageNotFound';
+/* harmony default export */ __webpack_exports__["default"] = (PageNotFound);
 
 
 /***/ }),
 
-/***/ "./src/front/pages/protected/index.ts":
-/*!********************************************!*\
-  !*** ./src/front/pages/protected/index.ts ***!
-  \********************************************/
+/***/ "./src/front/pages/pageNotFound/index.ts":
+/*!***********************************************!*\
+  !*** ./src/front/pages/pageNotFound/index.ts ***!
+  \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-/* harmony import */ var _Protected__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Protected */ "./src/front/pages/protected/Protected.tsx");
+/* harmony import */ var _PageNotFound__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PageNotFound */ "./src/front/pages/pageNotFound/PageNotFound.tsx");
 /* harmony import */ var _hoc_withEnterAnimation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hoc/withEnterAnimation */ "./src/front/hoc/withEnterAnimation/index.ts");
-// #region imports
 
 
 
-// #endregion
-/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["compose"])(Object(_hoc_withEnterAnimation__WEBPACK_IMPORTED_MODULE_2__["default"])( /* no option yet */))(_Protected__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["compose"])(Object(_hoc_withEnterAnimation__WEBPACK_IMPORTED_MODULE_2__["default"])( /* no option yet */))(_PageNotFound__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 
 /***/ })
 
 }]);
-//# sourceMappingURL=4.9261c024a326760f2aac.js.map
+//# sourceMappingURL=0.7219833b8f47403ac477.js.map

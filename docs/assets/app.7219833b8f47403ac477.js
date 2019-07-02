@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + "." + "9261c024a326760f2aac" + ".js"
+/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + "." + "7219833b8f47403ac477" + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -1144,8 +1144,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "auth", function() { return auth; });
 /* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jwt-decode */ "./node_modules/jwt-decode/lib/index.js");
 /* harmony import */ var jwt_decode__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jwt_decode__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var date_fns_is_after__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns/is_after */ "./node_modules/date-fns/is_after/index.js");
-/* harmony import */ var date_fns_is_after__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(date_fns_is_after__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/index.js");
+/* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_1__);
 // #region imports
 
 
@@ -1251,18 +1251,14 @@ var auth = {
             if (localStorage && localStorage.getItem(tokenKey)) {
                 return true;
             }
-            else {
-                return false;
-            }
+            return false;
         }
         // sessionStorage:
         if (fromStorage === APP_PERSIST_STORES_TYPES[1]) {
             if (sessionStorage && sessionStorage.getItem(tokenKey)) {
                 return true;
             }
-            else {
-                return false;
-            }
+            return false;
         }
         // default:
         return false;
@@ -1314,7 +1310,7 @@ var auth = {
     isExpiredToken: function (encodedToken) {
         var expirationDate = this.getTokenExpirationDate(encodedToken);
         var rightNow = new Date();
-        var isExpiredToken = date_fns_is_after__WEBPACK_IMPORTED_MODULE_1___default()(rightNow, expirationDate);
+        var isExpiredToken = Object(date_fns__WEBPACK_IMPORTED_MODULE_1__["isAfter"])(rightNow, expirationDate);
         return isExpiredToken;
     },
     // /////////////////////////////////////////////////////////////
@@ -1458,9 +1454,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
-// #region imports
 
-// #endregion
 var GlobalStyle = function () { return Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["createGlobalStyle"])(templateObject_1 || (templateObject_1 = tslib__WEBPACK_IMPORTED_MODULE_0__["__makeTemplateObject"](["\n  html, body {\n    margin: 0;\n    height: 100%;\n    -webkit-font-smoothing: antialiased;\n  }\n\n  * {\n    box-sizing: border-box;\n  }\n\n  a {\n    text-decoration: none;\n    color: inherit;\n    &:hover {\n      text-decoration: none;\n    }\n  }\n"], ["\n  html, body {\n    margin: 0;\n    height: 100%;\n    -webkit-font-smoothing: antialiased;\n  }\n\n  * {\n    box-sizing: border-box;\n  }\n\n  a {\n    text-decoration: none;\n    color: inherit;\n    &:hover {\n      text-decoration: none;\n    }\n  }\n"]))); };
 /* harmony default export */ __webpack_exports__["default"] = (GlobalStyle);
 var templateObject_1;
@@ -1469,4 +1463,4 @@ var templateObject_1;
 /***/ })
 
 /******/ });
-//# sourceMappingURL=app.9261c024a326760f2aac.js.map
+//# sourceMappingURL=app.7219833b8f47403ac477.js.map

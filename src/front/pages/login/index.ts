@@ -1,8 +1,8 @@
 // #region imports
 import { compose } from 'redux';
-import Login from './Login';
 import withEnterAnimation from '../../hoc/withEnterAnimation';
 import withAuth from '../../contexts/auth/consumerHOC';
+import Login from './Login';
 // #endregion
 
 export default compose(
