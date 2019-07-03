@@ -7,7 +7,7 @@ type UserData = {
 };
 
 interface User {
-  token: string;
+  token: string | null;
   user?: UserData;
   email: string;
 }
