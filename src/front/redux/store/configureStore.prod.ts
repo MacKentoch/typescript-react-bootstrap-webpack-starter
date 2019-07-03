@@ -5,6 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createHistory from 'history/createBrowserHistory';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import { Middleware } from 'redux';
 import reducer from '../modules/reducers';
 import fetchMiddleware from '../middlewares/fetchMiddleware';
 
@@ -14,7 +15,7 @@ export const history = createHistory();
 
 // #region createStore : enhancer
 const enhancer = composeWithDevTools(
-  applyMiddleware(thunkMiddleware, fetchMiddleware, routerMiddleware(history)),
+  applyMiddleware(thunkMiddleware, (fetchMiddleware as Middleware), routerMiddleware(history)),
 );
 // #endregion
 

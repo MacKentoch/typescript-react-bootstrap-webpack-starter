@@ -1,7 +1,5 @@
 import axios, {Method} from 'axios';
-import { Dispatch } from 'react'
-import {  } from 'redux-thunk'
-
+import { Dispatch } from 'redux';
 
 // #region constants
 export const FETCH_MOCK = 'FETCH_MOCK';
@@ -30,7 +28,7 @@ enum FETCH_TYPE {
 //
 
 
-type Action = {
+type FetchAction = {
   fetch: {
     type: FETCH_TYPE,
     actionTypes: {
@@ -46,7 +44,9 @@ type Action = {
   }
 }
 
-const fetchMiddleware = (store: any) => (next: Dispatch<any>) => async (action: Partial<Action>) => {
+type Store = any
+
+const fetchMiddleware = (store: Store) => (next: Function) => async (action: FetchAction) => {
   if (!action.fetch) {
     return next(action);
   }
@@ -126,4 +126,4 @@ const fetchMiddleware = (store: any) => (next: Dispatch<any>) => async (action: 
   return next(action);
 };
 
-export default fetchMiddleware;
+export default fetchMiddleware as unknown;

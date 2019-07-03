@@ -1,12 +1,10 @@
 
-import { Dispatch  } from 'redux'
-import {} from 'redux-thunk'
+import { Dispatch } from 'redux'
 import appConfig from '../../../config/appConfig';
 import userInfosMockData from '../../../mock/userInfo.json'
 import { getLocationOrigin } from '../../../services/API/fetchTools';
 import auth from '../../../services/auth';
 import { State } from './types'
-
 
 // #region CONSTANTS
 const REQUEST_USER_INFOS_DATA: string = 'REQUEST_USER_INFOS_DATA';

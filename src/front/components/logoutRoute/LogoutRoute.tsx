@@ -10,11 +10,12 @@ import { AuthContextProps } from '../../contexts/auth/consumerHOC';
 // #endregion
 
 // #region flow types
-interface Props extends RouteComponentProps, AuthContextProps {}
+type Props = {} &  RouteComponentProps & AuthContextProps
 // #endregion
 
 function LogoutRoute(props: Props) {
   const { disconnectUser } = props;
+
   useEffect(() => {
     disconnectUser();
   });
@@ -28,4 +29,4 @@ function LogoutRoute(props: Props) {
 
 LogoutRoute.displayName = 'LogoutRoute';
 
-export default withRouter(LogoutRoute);
+export default withRouter<Props>(LogoutRoute);

@@ -5,6 +5,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createHistory from 'history/createBrowserHistory';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import { Middleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import reducer from '../modules/reducers';
 import fetchMiddleware from '../middlewares/fetchMiddleware';
@@ -26,7 +27,7 @@ const enhancer = composeWithDevTools(
   applyMiddleware(
     thunkMiddleware,
     routerMiddleware(history),
-    fetchMiddleware,
+    (fetchMiddleware as Middleware),
     loggerMiddleware, // logger at the end
   ),
 );
